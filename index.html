@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
   ネクスク AI版 LP
-  Sections: HERO / PROBLEM / WHY / SERVICE / BEFORE AFTER / VALUE / FLOW / PRICE / REASON / FAQ / CTA
+  Sections: HERO / PROBLEM / WHY / SERVICE / CHANGE / VALUE / FLOW / PRICE / REASON / FAQ / CTA
 -->
 <html lang="ja">
   <head>
@@ -10,20 +10,20 @@
     <title>ネクスク AI版 | 隣の机に、AIが座った。</title>
     <meta
       name="description"
-      content="ネクスク AI版は、経験あるディレクターと24時間動くAIが隣の机に並び、人材不足を業務改善と内製化で解く伴走サービスです。"
+      content="経験あるディレクターと24時間動くAIが、隣の机に並び、業務改善と内製化を伴走するネクスク AI版のランディングページ。"
     />
     <style>
       :root {
-        --yellow: #ffd93d;
-        --yellow-soft: #fff2a6;
-        --blue: #00a7c8;
-        --navy: #13213a;
-        --ink: #171717;
-        --muted: #555;
-        --paper: #fffdfa;
-        --gray: #f3f3f0;
-        --line: #171717;
+        --yellow: #f8d24a;
+        --yellow-deep: #f1bd29;
+        --blue: #18a8c7;
+        --ink: #222222;
+        --muted: #4b4b4b;
+        --light: #f1f1f1;
+        --paper: #ffffff;
+        --line: #222222;
         --max: 980px;
+        --radius: 8px;
       }
 
       * {
@@ -37,9 +37,9 @@
       body {
         margin: 0;
         color: var(--ink);
-        background: var(--blue);
+        background: var(--paper);
         font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
-        line-height: 1.85;
+        line-height: 1.82;
         letter-spacing: 0;
       }
 
@@ -57,6 +57,18 @@
         display: block;
       }
 
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
       h1,
       h2,
       h3,
@@ -67,13 +79,6 @@
         overflow-wrap: anywhere;
       }
 
-      .page {
-        width: min(100%, var(--max));
-        margin: 0 auto;
-        background: var(--paper);
-        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0 24px 90px rgba(0, 0, 0, 0.22);
-      }
-
       .site-header {
         position: sticky;
         top: 0;
@@ -82,276 +87,431 @@
         grid-template-columns: auto 1fr auto;
         gap: 22px;
         align-items: center;
-        min-height: 62px;
-        padding: 14px clamp(18px, 5vw, 52px);
-        background: rgba(255, 217, 61, 0.94);
+        padding: 12px clamp(18px, 4vw, 44px);
+        background: rgba(255, 255, 255, 0.92);
         border-bottom: 2px solid var(--line);
+        backdrop-filter: blur(16px);
       }
 
       .brand {
         display: inline-flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
         font-weight: 900;
         line-height: 1;
       }
 
       .brand-mark {
         display: block;
-        width: 76px;
-        height: 34px;
+        width: 138px;
+        aspect-ratio: 848 / 246;
         overflow: hidden;
       }
 
       .brand-mark img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        object-position: center;
+        object-fit: contain;
       }
 
       .brand small {
         display: block;
-        margin-top: 4px;
-        font-size: 0.66rem;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 0.72rem;
         font-weight: 800;
       }
 
       .desktop-nav {
         display: flex;
         justify-content: center;
-        gap: clamp(12px, 2.4vw, 24px);
-        font-size: 0.76rem;
-        font-weight: 800;
+        gap: clamp(14px, 3vw, 30px);
+        color: var(--ink);
+        font-size: 0.84rem;
+        font-weight: 900;
       }
 
-      .nav-cta,
       .button {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         min-height: 42px;
-        padding: 0 18px;
+        padding: 0 20px;
         border: 2px solid var(--line);
         border-radius: 999px;
-        background: var(--navy);
+        background: #142039;
         color: #fff;
-        font-size: 0.86rem;
+        font-size: 0.88rem;
         font-weight: 900;
         line-height: 1.2;
-        box-shadow: 3px 3px 0 var(--line);
+        box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.25);
         transition: transform 0.18s ease, box-shadow 0.18s ease;
       }
 
-      .button:hover,
-      .nav-cta:hover {
+      .button:hover {
         transform: translate(2px, 2px);
-        box-shadow: 1px 1px 0 var(--line);
+        box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
       }
 
-      .button.yellow {
-        background: var(--yellow);
+      .button.ghost {
+        background: #fff;
         color: var(--ink);
       }
 
       .hero {
         position: relative;
+        min-height: 620px;
+        padding: clamp(34px, 6vw, 74px) clamp(18px, 4vw, 52px) clamp(72px, 9vw, 112px);
         overflow: hidden;
-        padding: clamp(42px, 7vw, 82px) clamp(22px, 6vw, 76px) clamp(64px, 9vw, 104px);
-        background: var(--yellow);
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0 18%, transparent 18% 100%),
+          linear-gradient(125deg, transparent 0 58%, rgba(255, 255, 255, 0.14) 58% 100%),
+          var(--yellow);
       }
 
       .hero::after {
         position: absolute;
-        inset: auto -8% -1px -8%;
-        height: 23%;
+        inset: auto -10% -1px -10%;
+        height: 26%;
         content: "";
-        background: var(--paper);
-        clip-path: polygon(0 62%, 100% 18%, 100% 100%, 0 100%);
+        background: #fff;
+        clip-path: polygon(0 36%, 100% 72%, 100% 100%, 0 100%);
       }
 
-      .hero-grid {
+      .hero-inner,
+      .section,
+      .final-cta,
+      footer {
+        width: min(var(--max), calc(100% - 36px));
+        margin: 0 auto;
+      }
+
+      .hero-inner {
         position: relative;
         z-index: 1;
         display: grid;
-        grid-template-columns: minmax(0, 0.92fr) minmax(260px, 0.72fr);
-        gap: clamp(24px, 5vw, 48px);
+        grid-template-columns: minmax(0, 1.04fr) minmax(280px, 0.78fr);
+        column-gap: clamp(24px, 6vw, 72px);
+        row-gap: 20px;
         align-items: center;
       }
 
-      .hero-heading {
-        position: relative;
-        z-index: 1;
-        margin-bottom: clamp(20px, 4vw, 34px);
-      }
-
-      .section-label {
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
-        margin: 0 0 14px;
-        color: var(--navy);
-        font-size: 0.72rem;
-        font-weight: 900;
-        letter-spacing: 0.1em;
+      .label {
+        margin: 0 0 12px;
+        color: var(--ink);
+        font-size: 0.76rem;
+        font-weight: 950;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
       }
 
-      .section-label::before {
-        width: 28px;
-        height: 2px;
-        content: "";
-        background: var(--line);
+      .hero .label,
+      .hero h1,
+      .hero-copy,
+      .hero-result {
+        grid-column: 1;
+      }
+
+      .hero-logo {
+        grid-column: 1 / -1;
+        margin: 0 0 6px;
+      }
+
+      .hero-logo img {
+        width: min(720px, 100%);
+        height: auto;
       }
 
       .hero h1 {
+        max-width: none;
         margin: 0;
-        font-size: clamp(2rem, 5.1vw, 4rem);
-        line-height: 1.04;
+        color: var(--ink);
+        font-size: clamp(2rem, 4.4vw, 3.8rem);
+        line-height: 1.05;
         font-weight: 950;
         white-space: nowrap;
+        -webkit-text-stroke: 0.75px currentColor;
       }
 
-      .hero-wordmark {
-        display: block;
-        width: min(72vw, 560px);
-        aspect-ratio: 5 / 1.35;
-        margin-top: 12px;
-        overflow: hidden;
+      .hero h1 span {
+        display: inline;
       }
 
-      .hero-wordmark img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
+      .hero-grid {
+        display: contents;
       }
 
       .hero-copy {
-        margin: 18px 0 0;
-        font-size: clamp(1rem, 1.7vw, 1.2rem);
-        font-weight: 800;
+        grid-column: 1;
+        margin: 16px 0 0;
+        color: var(--ink);
+        font-size: clamp(0.95rem, 1.34vw, 1.12rem);
+        font-weight: 900;
+        white-space: nowrap;
       }
 
       .hero-result {
-        margin-top: 26px;
-        padding: 18px 20px;
-        border: 2px solid var(--line);
-        background: var(--paper);
-        box-shadow: 5px 5px 0 var(--line);
+        grid-column: 1;
+        margin-top: 20px;
+        padding: 0;
+        border: 0;
+        background: transparent;
       }
 
       .hero-result h2 {
         margin: 0;
-        font-size: clamp(1.32rem, 2.6vw, 2.1rem);
-        line-height: 1.32;
+        font-size: clamp(1.24rem, 2vw, 1.72rem);
+        line-height: 1.35;
         font-weight: 950;
+        white-space: nowrap;
+        -webkit-text-stroke: 0.55px currentColor;
       }
 
       .hero-result p {
-        margin: 8px 0 0;
-        color: var(--muted);
-        font-weight: 800;
+        margin: 10px 0 0;
+        color: var(--ink);
+        font-size: clamp(1.24rem, 2vw, 1.72rem);
+        line-height: 1.35;
+        font-weight: 950;
+        white-space: nowrap;
+        -webkit-text-stroke: 0.55px currentColor;
       }
 
       .hero-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        margin-top: 22px;
+        margin-top: 20px;
       }
 
-      .illust {
-        width: min(100%, 330px);
-        margin: 0 auto;
+      .hero-illust,
+      .section-illust,
+      .section-visual {
+        color: var(--ink);
+      }
+
+      .legacy-illust {
+        display: none;
       }
 
       .hero-visual {
-        position: relative;
-        display: grid;
-        place-items: center;
-        min-width: 0;
+        grid-column: 2;
+        grid-row: 1 / span 6;
+        width: min(100%, 430px);
+        justify-self: center;
+        align-self: end;
       }
 
-      .hero-logo-panel {
-        position: relative;
-        z-index: 2;
-        width: min(100%, 520px);
-        margin: 0;
-        overflow: hidden;
-        border: 2px solid var(--line);
-        background: #fff;
-        box-shadow: 7px 7px 0 var(--line);
-        transform: rotate(-1.6deg);
+      .section-visual {
+        width: min(680px, 100%);
+        height: auto;
+        margin: -8px auto 28px;
       }
 
-      .hero-logo-panel img {
+      .section-visual.narrow {
+        width: min(520px, 100%);
+      }
+
+      .section-visual.wide {
+        width: min(760px, 100%);
+      }
+
+      .problem-art {
+        position: relative;
+        width: min(900px, 100%);
+        margin: -8px auto 28px;
+      }
+
+      .problem-art img {
         width: 100%;
         height: auto;
       }
 
-      .hero-logo-panel::after {
+      .problem-bubble {
         position: absolute;
-        right: 14px;
-        bottom: 12px;
-        content: "AI版";
-        padding: 5px 12px;
-        border: 2px solid var(--line);
-        border-radius: 999px;
-        background: var(--navy);
-        color: #fff;
-        font-size: clamp(0.74rem, 1.3vw, 0.92rem);
+        display: grid;
+        margin: 0;
+        min-height: 9%;
+        place-items: center;
+        padding: 1.1% 2.1%;
+        border: 0;
+        background: transparent;
+        color: var(--ink);
+        font-size: clamp(0.72rem, 1.28vw, 1.03rem);
         font-weight: 950;
-        line-height: 1;
-        transform: rotate(2deg);
+        line-height: 1.28;
+        text-align: center;
+        -webkit-text-stroke: 0.25px currentColor;
       }
 
-      .hero-mini-illust {
-        position: relative;
-        z-index: 3;
-        width: min(100%, 300px);
-        margin: 0 auto;
-        filter: drop-shadow(4px 5px 0 rgba(0, 0, 0, 0.16));
+      .problem-bubble::before,
+      .problem-bubble::after {
+        display: none;
       }
 
-      .illust .skin {
-        fill: #ffe2b8;
+      .problem-bubble::before {
+        right: -34px;
+        bottom: 16%;
+        border-width: 13px 0 13px 34px;
+        border-color: transparent transparent transparent #3a3a3a;
       }
 
-      .illust .blue {
-        fill: var(--blue);
+      .problem-bubble::after {
+        right: -29px;
+        bottom: calc(16% + 2px);
+        border-width: 11px 0 11px 29px;
+        border-color: transparent transparent transparent #fff;
       }
 
-      .illust .yellow {
+      .problem-bubble.grow {
+        left: 30%;
+        top: 1.5%;
+        width: 31%;
+      }
+
+      .problem-bubble.grow::before {
+        right: -8%;
+        bottom: 10%;
+      }
+
+      .problem-bubble.grow::after {
+        right: calc(-8% + 5px);
+        bottom: calc(10% + 2px);
+      }
+
+      .problem-bubble.branding {
+        right: 0;
+        top: 7%;
+        width: 29%;
+      }
+
+      .problem-bubble.branding::before {
+        left: -34px;
+        right: auto;
+        bottom: 8%;
+        border-width: 13px 34px 13px 0;
+        border-color: transparent #3a3a3a transparent transparent;
+      }
+
+      .problem-bubble.branding::after {
+        left: -29px;
+        right: auto;
+        bottom: calc(8% + 2px);
+        border-width: 11px 29px 11px 0;
+        border-color: transparent #fff transparent transparent;
+      }
+
+      .problem-bubble.designer {
+        left: 8%;
+        top: 18%;
+        width: 31%;
+      }
+
+      .problem-bubble.designer::before {
+        right: -8%;
+        bottom: 12%;
+      }
+
+      .problem-bubble.designer::after {
+        right: calc(-8% + 5px);
+        bottom: calc(12% + 2px);
+      }
+
+      .problem-bubble.inhouse {
+        left: 0;
+        top: 45%;
+        width: 36%;
+      }
+
+      .problem-bubble.inhouse::before {
+        right: -7%;
+        bottom: 7%;
+      }
+
+      .problem-bubble.inhouse::after {
+        right: calc(-7% + 5px);
+        bottom: calc(7% + 2px);
+      }
+
+      .problem-bubble.outsource {
+        right: 9%;
+        top: 54%;
+        width: 26%;
+      }
+
+      .problem-bubble.outsource::before {
+        left: -34px;
+        right: auto;
+        bottom: 12%;
+        border-width: 13px 34px 13px 0;
+        border-color: transparent #3a3a3a transparent transparent;
+      }
+
+      .problem-bubble.outsource::after {
+        left: -29px;
+        right: auto;
+        bottom: calc(12% + 2px);
+        border-width: 11px 29px 11px 0;
+        border-color: transparent #fff transparent transparent;
+      }
+
+      .illust-fill-yellow {
         fill: var(--yellow);
       }
 
-      .illust .paper {
-        fill: var(--paper);
+      .illust-fill-blue {
+        fill: var(--blue);
       }
 
-      .illust .ink {
-        fill: var(--ink);
+      .illust-fill-paper {
+        fill: #fff;
       }
 
-      .illust .line {
+      .illust-line {
         fill: none;
-        stroke: var(--ink);
-        stroke-width: 3.2;
+        stroke: currentColor;
+        stroke-width: 4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .illust-thin {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2.4;
         stroke-linecap: round;
         stroke-linejoin: round;
       }
 
       .section {
-        padding: clamp(54px, 8vw, 92px) clamp(22px, 6vw, 76px);
+        position: relative;
+        padding: clamp(64px, 9vw, 104px) 0;
       }
 
-      .section.gray {
-        background: var(--gray);
+      .section::before,
+      .final-cta::before {
+        position: absolute;
+        inset: 0 calc(50% - 50vw);
+        z-index: -1;
+        content: "";
+        background: var(--paper);
       }
 
-      .section.yellow-band {
-        background: var(--yellow);
+      #problem::before,
+      #value::before,
+      #faq::before {
+        background:
+          linear-gradient(118deg, transparent 0 25%, rgba(0, 0, 0, 0.04) 25% 52%, transparent 52%),
+          var(--light);
+      }
+
+      #service::before,
+      #price::before,
+      .final-cta::before {
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0 22%, transparent 22% 100%),
+          linear-gradient(34deg, transparent 0 64%, rgba(255, 255, 255, 0.16) 64%),
+          var(--yellow);
       }
 
       .section-head {
@@ -360,85 +520,56 @@
         text-align: center;
       }
 
-      .section-head .section-label {
-        justify-content: center;
-      }
-
       .section-head h2 {
         margin: 0;
-        font-size: clamp(1.82rem, 3.8vw, 3.2rem);
-        line-height: 1.22;
+        color: var(--ink);
+        font-size: clamp(1.8rem, 3.6vw, 3rem);
+        line-height: 1.2;
         font-weight: 950;
+        -webkit-text-stroke: 0.9px currentColor;
+        text-shadow: 0.8px 0 0 currentColor;
       }
 
-      .section-head p {
+      #problem-title {
+        font-size: clamp(2rem, 4.4vw, 3.75rem);
+        -webkit-text-stroke: 1.35px currentColor;
+        text-shadow:
+          1.2px 0 0 currentColor,
+          0 0.8px 0 currentColor;
+      }
+
+      .section-head p:not(.label) {
         margin: 14px 0 0;
         color: var(--muted);
-        font-weight: 700;
-      }
-
-      .section-head.align-left {
-        text-align: left;
-      }
-
-      .section-head.align-left .section-label {
-        justify-content: flex-start;
-      }
-
-      .section-head .one-line {
-        font-size: clamp(0.82rem, 1.58vw, 1rem);
-        white-space: nowrap;
-      }
-
-      .bubble-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
-        max-width: 850px;
-        margin: 0 auto 30px;
-      }
-
-      .bubble {
-        position: relative;
-        padding: 18px;
-        border: 2px solid var(--line);
-        border-radius: 16px;
-        background: #fff;
-        font-size: 0.94rem;
         font-weight: 800;
-        line-height: 1.55;
-        box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.12);
       }
 
-      .bubble::after {
-        position: absolute;
-        bottom: -10px;
-        left: 28px;
-        width: 18px;
-        height: 18px;
-        content: "";
-        border-right: 2px solid var(--line);
-        border-bottom: 2px solid var(--line);
-        background: #fff;
-        transform: rotate(45deg);
+      #service .section-head {
+        max-width: 1040px;
+      }
+
+      #service .section-head p:not(.label) {
+        color: var(--ink);
+        font-size: clamp(1.12rem, 1.8vw, 1.45rem);
+        line-height: 1.55;
+        font-weight: 950;
       }
 
       .tabs {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 10px;
-        max-width: 850px;
-        margin: 0 auto 18px;
+        margin: 0 auto 16px;
       }
 
       .tab-button {
-        min-height: 48px;
+        min-height: 46px;
         padding: 8px 12px;
         border: 2px solid var(--line);
         border-radius: 999px;
+        color: var(--ink);
         background: #fff;
         cursor: pointer;
-        font-size: 0.9rem;
         font-weight: 900;
       }
 
@@ -449,60 +580,59 @@
 
       .tab-panel {
         display: none;
-        max-width: 850px;
-        margin: 0 auto;
       }
 
       .tab-panel.is-active {
         display: block;
       }
 
-      .list-card,
-      .message-card,
-      .table-card,
-      .price-box,
-      .faq-list details,
-      .placeholder {
+      .card,
+      .list-box,
+      .statement,
+      .layer,
+      .plan,
+      .placeholder,
+      details,
+      .table-wrap,
+      .price-note {
         border: 2px solid var(--line);
+        border-radius: var(--radius);
         background: #fff;
-        box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.14);
+        box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.12);
       }
 
-      .list-card,
-      .message-card,
-      .price-box,
+      .card,
+      .list-box,
+      .plan,
       .placeholder {
-        padding: clamp(20px, 4vw, 34px);
+        padding: 24px;
       }
 
-      .list-card ul,
-      .check-list,
+      .list-box ul,
       .plain-list {
         margin: 0;
         padding: 0;
         list-style: none;
       }
 
-      .list-card li,
-      .check-list li,
+      .list-box li,
       .plain-list li {
         position: relative;
-        padding-left: 26px;
-        font-weight: 700;
+        padding-left: 24px;
+        color: var(--ink);
+        font-weight: 800;
       }
 
-      .list-card li + li,
-      .check-list li + li,
+      .list-box li + li,
       .plain-list li + li {
-        margin-top: 12px;
+        margin-top: 10px;
       }
 
-      .list-card li::before,
-      .check-list li::before,
+      .list-box li::before,
       .plain-list li::before {
         position: absolute;
         left: 0;
-        top: 0.86em;
+        top: 0.82em;
         width: 11px;
         height: 11px;
         content: "";
@@ -512,99 +642,158 @@
         transform: translateY(-50%);
       }
 
-      .message-card {
+      .statement {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(220px, 0.42fr);
-        gap: 24px;
-        max-width: 850px;
-        margin: 22px auto 0;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-top: 18px;
+        padding: clamp(28px, 4vw, 44px) clamp(26px, 5vw, 58px);
         background: var(--yellow);
       }
 
-      .message-card h3 {
-        margin: 0;
-        font-size: clamp(1.25rem, 2.35vw, 2.08rem);
-        line-height: 1.25;
-        font-weight: 950;
-        white-space: nowrap;
+      .statement > div:first-child {
+        max-width: 960px;
+        display: grid;
+        grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
+        gap: 28px;
+        align-items: start;
       }
 
-      .message-card p {
+      .statement h3,
+      .card h3,
+      .layer h3,
+      .plan h3,
+      .placeholder h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(1.18rem, 2vw, 1.6rem);
+        line-height: 1.35;
+        font-weight: 950;
+        -webkit-text-stroke: 0.4px currentColor;
+      }
+
+      .statement h3 {
+        font-size: clamp(2rem, 4.2vw, 3.2rem);
+        line-height: 1.12;
+        -webkit-text-stroke: 0.65px currentColor;
+      }
+
+      .statement p,
+      .card p,
+      .layer p,
+      .plan p,
+      .placeholder p {
         margin: 10px 0 0;
-        font-weight: 800;
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      .statement > div:first-child p {
+        max-width: 920px;
+        margin-top: 0;
+        color: var(--ink);
+        font-size: clamp(1.08rem, 1.8vw, 1.34rem);
+        line-height: 1.78;
+        font-weight: 950;
       }
 
       .boundary {
-        padding: 18px;
+        display: grid;
+        grid-template-columns: minmax(130px, 0.22fr) minmax(0, 1fr);
+        gap: 18px;
+        align-items: start;
+        max-width: 1080px;
+        padding: 18px 22px;
         border: 2px dashed var(--line);
-        background: var(--paper);
-        font-size: 0.94rem;
-        font-weight: 800;
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--ink);
+        font-size: clamp(0.92rem, 1.2vw, 1.02rem);
+        line-height: 1.72;
+        font-weight: 850;
       }
 
-      .two-col {
-        display: grid;
-        grid-template-columns: minmax(0, 0.78fr) minmax(0, 1fr);
-        gap: clamp(22px, 4vw, 44px);
-        max-width: 850px;
-        margin: 0 auto;
-        align-items: center;
-      }
-
-      .text-block h3 {
-        margin: 0 0 12px;
-        font-size: clamp(1.28rem, 2.3vw, 1.88rem);
-        line-height: 1.35;
+      .boundary strong {
+        display: block;
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(1rem, 1.5vw, 1.16rem);
+        line-height: 1.45;
         font-weight: 950;
       }
 
-      .text-block p {
+      .boundary p {
         margin: 0;
-        color: var(--muted);
-        font-weight: 700;
+        color: var(--ink);
+        font-weight: 850;
       }
 
-      .text-block p + h3 {
-        margin-top: 24px;
-      }
-
-      .mini-grid {
+      .grid-3,
+      .grid-4,
+      .plan-grid,
+      .voice-grid {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 14px;
-        max-width: 850px;
-        margin: 0 auto;
       }
 
-      .mini-card {
-        padding: 20px;
-        border-top: 4px solid var(--line);
-        background: #fff;
+      .grid-3,
+      .plan-grid,
+      .voice-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
-      .mini-card h3 {
-        margin: 0 0 10px;
-        font-size: 1.12rem;
-        line-height: 1.35;
-        font-weight: 950;
+      .grid-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
 
-      .mini-card p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.94rem;
-        font-weight: 700;
+      .solution-grid .card h3 {
+        text-align: center;
+      }
+
+      .value-grid .card h3 {
+        text-align: center;
       }
 
       .conclusion {
-        max-width: 850px;
-        margin: 24px auto 0;
-        padding: 20px 22px;
+        margin: 20px 0 0;
+        padding: 24px 28px;
         border-left: 10px solid var(--yellow);
         background: #fff;
-        font-size: clamp(1.1rem, 2vw, 1.4rem);
+        font-size: clamp(1.08rem, 2vw, 1.36rem);
         font-weight: 950;
         line-height: 1.55;
+      }
+
+      .definition {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: clamp(24px, 4vw, 42px);
+      }
+
+      .definition > div:first-child {
+        padding: 24px;
+        border-top: 5px solid var(--line);
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      .concept-title {
+        display: grid;
+        gap: 4px;
+      }
+
+      .concept-title .en {
+        display: block;
+        font-size: clamp(2rem, 4.4vw, 3.35rem);
+        line-height: 1;
+        font-weight: 950;
+        -webkit-text-stroke: 0.8px currentColor;
+      }
+
+      .concept-title .jp {
+        display: block;
+        font-size: clamp(1.24rem, 2.3vw, 1.78rem);
+        line-height: 1.3;
+        font-weight: 950;
       }
 
       .layer-stack {
@@ -616,171 +805,115 @@
         display: grid;
         grid-template-columns: 58px 1fr;
         gap: 16px;
-        align-items: start;
-        padding: 16px;
-        border: 2px solid var(--line);
-        background: #fff;
+        padding: 18px;
       }
 
       .layer-number {
         display: grid;
-        width: 48px;
-        height: 48px;
+        width: 46px;
+        height: 46px;
         place-items: center;
         border: 2px solid var(--line);
         border-radius: 50%;
         background: var(--yellow);
+        color: var(--ink);
         font-weight: 950;
       }
 
-      .layer h3 {
-        margin: 0;
-        font-size: 1.05rem;
-        font-weight: 950;
-      }
-
-      .layer p {
-        margin: 4px 0 0;
-        color: var(--muted);
-        font-size: 0.92rem;
-        font-weight: 700;
-      }
-
-      .table-card {
-        max-width: 900px;
-        margin: 0 auto;
+      .table-wrap {
         overflow-x: auto;
+        background: #fff;
       }
 
       table {
         width: 100%;
-        min-width: 760px;
+        min-width: 820px;
         border-collapse: collapse;
-        background: #fff;
       }
 
       th,
       td {
-        padding: 16px;
+        padding: 18px;
         border-bottom: 2px solid var(--line);
         text-align: left;
         vertical-align: top;
-        font-size: 0.94rem;
       }
 
       th {
         background: var(--yellow);
+        color: var(--ink);
         font-weight: 950;
       }
 
       td {
+        color: var(--muted);
         font-weight: 700;
+      }
+
+      td:first-child {
+        color: var(--ink);
+        font-weight: 950;
       }
 
       tr:last-child td {
         border-bottom: 0;
       }
 
-      td:first-child {
-        width: 18%;
-        font-weight: 950;
-      }
-
       .note {
-        max-width: 850px;
-        margin: 16px auto 0;
+        margin: 16px 0 0;
         color: var(--muted);
         font-size: 0.94rem;
         font-weight: 700;
       }
 
-      .value-grid,
-      .plan-grid,
-      .reason-grid,
-      .voice-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
-        max-width: 900px;
-        margin: 0 auto;
-      }
-
-      .value-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-
-      .feature-card,
-      .plan,
-      .reason-card {
-        padding: 22px;
-        border: 2px solid var(--line);
-        background: #fff;
-      }
-
-      .feature-icon {
+      .value-icon {
         display: grid;
         width: 44px;
         height: 44px;
-        margin-bottom: 14px;
+        margin-bottom: 16px;
         place-items: center;
         border: 2px solid var(--line);
         border-radius: 50%;
         background: var(--yellow);
+        color: var(--ink);
         font-weight: 950;
-      }
-
-      .feature-card h3,
-      .plan h3,
-      .reason-card h3,
-      .placeholder h3 {
-        margin: 0 0 10px;
-        font-size: 1.18rem;
-        line-height: 1.35;
-        font-weight: 950;
-      }
-
-      .feature-card p,
-      .plan p,
-      .reason-card p,
-      .placeholder p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.94rem;
-        font-weight: 700;
       }
 
       .flow {
-        max-width: 850px;
-        margin: 0 auto;
-        counter-reset: step;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
       }
 
       .flow-step {
-        position: relative;
-        display: grid;
-        grid-template-columns: 72px 1fr;
-        gap: 16px;
-        padding: 18px 0;
-        border-bottom: 2px solid var(--line);
+        min-height: 210px;
+        padding: 24px;
+        border: 2px solid var(--line);
+        border-radius: var(--radius);
+        background: #fff;
       }
 
-      .flow-step::before {
-        counter-increment: step;
-        content: "0" counter(step);
-        display: grid;
-        width: 54px;
-        height: 54px;
-        place-items: center;
-        border: 2px solid var(--line);
-        border-radius: 50%;
-        background: var(--yellow);
+      .flow-step span,
+      .price {
+        color: var(--ink);
         font-weight: 950;
+      }
+
+      .flow-step span {
+        display: inline-grid;
+        min-width: 60px;
+        min-height: 34px;
+        margin-bottom: 24px;
+        place-items: center;
+        border-radius: 999px;
+        background: var(--yellow);
       }
 
       .flow-step h3 {
-        margin: 0 0 5px;
-        font-size: 1.1rem;
+        margin: 0 0 10px;
+        text-align: center;
         font-weight: 950;
+        -webkit-text-stroke: 0.4px currentColor;
       }
 
       .flow-step p {
@@ -789,61 +922,34 @@
         font-weight: 700;
       }
 
-      .plan {
-        display: flex;
-        flex-direction: column;
-        min-height: 260px;
-      }
-
       .price {
-        margin: 8px 0 14px;
-        color: var(--navy);
-        font-size: 1.66rem;
-        font-weight: 950;
+        margin: 12px 0 14px;
+        font-size: 1.6rem;
       }
 
-      .plan ul {
-        margin-top: auto;
-      }
-
-      .price-box {
-        max-width: 900px;
-        margin: 14px auto 0;
-      }
-
-      .price-box h3 {
-        margin: 0 0 14px;
-        font-size: 1.24rem;
-        font-weight: 950;
-      }
-
-      .price-box p {
-        margin: 14px 0 0;
-        color: var(--muted);
-        font-weight: 700;
+      .price-note {
+        margin-top: 14px;
+        padding: 28px;
       }
 
       .placeholder {
-        min-height: 196px;
+        min-height: 190px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         background:
-          linear-gradient(135deg, rgba(255, 217, 61, 0.38), rgba(255, 255, 255, 0.2)),
+          linear-gradient(135deg, rgba(248, 210, 74, 0.42), rgba(255, 255, 255, 0.6)),
           #fff;
       }
 
       .placeholder small {
-        display: block;
-        margin-top: 18px;
         color: var(--muted);
-        font-size: 0.74rem;
-        font-weight: 950;
-        letter-spacing: 0.08em;
+        font-weight: 900;
       }
 
       .faq-list {
         display: grid;
         gap: 10px;
-        max-width: 850px;
-        margin: 0 auto;
       }
 
       summary {
@@ -861,47 +967,32 @@
 
       .final-cta {
         position: relative;
-        overflow: hidden;
-        padding: clamp(58px, 8vw, 90px) clamp(22px, 6vw, 76px);
-        background: var(--yellow);
-        text-align: center;
-      }
-
-      .final-cta::before {
-        position: absolute;
-        inset: 0 0 auto;
-        height: 22%;
-        content: "";
-        background: var(--paper);
-        clip-path: polygon(0 0, 100% 0, 100% 24%, 0 76%);
-      }
-
-      .final-inner {
-        position: relative;
-        z-index: 1;
-        max-width: 780px;
-        margin: 0 auto;
+        margin-bottom: 0;
+        padding: clamp(56px, 8vw, 88px) 0;
       }
 
       .final-cta h2 {
+        max-width: none;
         margin: 0;
-        font-size: clamp(2rem, 4.8vw, 4rem);
-        line-height: 1.18;
+        color: var(--ink);
+        font-size: clamp(2rem, 4.2vw, 3.45rem);
+        line-height: 1.15;
         font-weight: 950;
+        white-space: nowrap;
       }
 
       .final-cta p {
-        margin: 14px 0 0;
+        margin: 18px 0 0;
+        color: var(--ink);
         font-weight: 800;
       }
 
       .contact-row {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px 22px;
-        justify-content: center;
+        gap: 14px 24px;
         align-items: center;
-        margin-top: 24px;
+        margin-top: 28px;
         font-weight: 900;
       }
 
@@ -909,11 +1000,10 @@
         display: flex;
         justify-content: space-between;
         gap: 18px;
-        padding: 24px clamp(22px, 6vw, 76px) 96px;
-        background: var(--paper);
+        padding: 28px 0 110px;
         border-top: 2px solid var(--line);
         color: var(--muted);
-        font-size: 0.82rem;
+        font-size: 0.86rem;
         font-weight: 800;
       }
 
@@ -925,8 +1015,9 @@
       }
 
       .mobile-cta .button {
-        width: min(100%, 480px);
-        margin: 0 auto;
+        width: 100%;
+        min-height: 54px;
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
       }
 
       .fade-in {
@@ -940,11 +1031,7 @@
         transform: translateY(0);
       }
 
-      @media (max-width: 820px) {
-        .page {
-          width: 100%;
-        }
-
+      @media (max-width: 920px) {
         .site-header {
           grid-template-columns: auto auto;
         }
@@ -953,81 +1040,133 @@
           display: none;
         }
 
-        .hero-grid,
-        .two-col,
-        .message-card {
+        .hero-inner,
+        .statement,
+        .definition {
           grid-template-columns: 1fr;
         }
 
-        .hero h1 {
-          font-size: clamp(1.5rem, 6.4vw, 3.4rem);
+        .boundary {
+          grid-template-columns: 1fr;
+          gap: 8px;
         }
 
-        .bubble-grid,
-        .mini-grid,
-        .value-grid,
+        .statement > div:first-child {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .statement > div:first-child p {
+          margin-top: 0;
+        }
+
+        .hero-visual {
+          grid-column: 1;
+          grid-row: auto;
+          width: min(420px, 100%);
+          margin: 10px auto 0;
+        }
+
+        .grid-3,
+        .grid-4,
         .plan-grid,
-        .reason-grid,
-        .voice-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .tabs {
-          grid-template-columns: 1fr;
+        .voice-grid,
+        .flow {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
-      @media (max-width: 560px) {
+      @media (max-width: 640px) {
         body {
-          padding-bottom: 72px;
+          padding-bottom: 76px;
         }
 
         .site-header {
-          min-height: 58px;
-          padding: 12px 14px;
+          padding: 10px 14px;
         }
 
-        .brand small,
-        .nav-cta {
+        .brand > span:last-child,
+        .site-header .button {
           display: none;
         }
 
         .hero {
-          padding-top: 28px;
+          min-height: auto;
+          padding-top: 34px;
         }
 
-        .hero-result {
-          padding: 16px;
-          box-shadow: 3px 3px 0 var(--line);
+        .hero h1,
+        .hero-copy,
+        .hero-result h2,
+        .hero-result p,
+        .final-cta h2 {
+          white-space: normal;
         }
 
-        .hero-logo-panel {
-          width: min(100%, 460px);
-          margin-top: 8px;
-          box-shadow: 4px 4px 0 var(--line);
+        .hero-logo img {
+          width: min(100%, 520px);
         }
 
-        .hero-mini-illust {
-          width: min(72%, 230px);
-          margin-top: 8px;
+        .hero h1 {
+          font-size: clamp(2.55rem, 13vw, 4.4rem);
+        }
+
+        .problem-bubble {
+          padding: 1% 1.8%;
+          border-width: 1.5px;
+          border-radius: 10px;
+          font-size: clamp(0.5rem, 2.4vw, 0.72rem);
+          line-height: 1.22;
+          -webkit-text-stroke: 0.1px currentColor;
+        }
+
+        .problem-bubble::before {
+          right: -18px;
+          border-width: 7px 0 7px 18px;
+        }
+
+        .problem-bubble::after {
+          right: -15px;
+          border-width: 6px 0 6px 15px;
+        }
+
+        .problem-bubble.branding::before,
+        .problem-bubble.outsource::before {
+          left: -18px;
+          right: auto;
+          border-width: 7px 18px 7px 0;
+        }
+
+        .problem-bubble.branding::after,
+        .problem-bubble.outsource::after {
+          left: -15px;
+          right: auto;
+          border-width: 6px 15px 6px 0;
+        }
+
+        .tabs,
+        .grid-3,
+        .grid-4,
+        .plan-grid,
+        .voice-grid,
+        .flow {
+          grid-template-columns: 1fr;
         }
 
         .section-head {
           text-align: left;
         }
 
-        .section-head .section-label {
-          justify-content: flex-start;
+        #service .section-head br {
+          display: none;
         }
 
-        .flow-step {
-          grid-template-columns: 54px 1fr;
-        }
-
-        .flow-step::before {
-          width: 44px;
-          height: 44px;
-          font-size: 0.82rem;
+        .card,
+        .list-box,
+        .plan,
+        .placeholder,
+        .price-note {
+          padding: 20px;
         }
 
         footer {
@@ -1035,479 +1174,375 @@
         }
 
         .mobile-cta {
-          display: grid;
-          place-items: center;
+          display: block;
         }
       }
     </style>
   </head>
   <body>
-    <div class="page">
-      <header class="site-header" data-header>
-        <a class="brand" href="#top" aria-label="ネクスク AI版 トップへ">
-          <span class="brand-mark">
-            <img src="assets/nexsk-logo.svg" alt="ネクスク" />
-          </span>
-          <span>
-            NexSk AI
-          </span>
-        </a>
-        <nav class="desktop-nav" aria-label="主要メニュー">
-          <a href="#problem">お悩み</a>
-          <a href="#service">サービス</a>
-          <a href="#value">価値</a>
-          <a href="#price">料金</a>
-          <a href="#faq">FAQ</a>
-        </nav>
-        <a class="nav-cta" href="mailto:info@idea-d.jp?subject=ネクスクAI版の無料相談">無料相談</a>
-      </header>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="ネクスク AI版 トップへ">
+        <span class="brand-mark">
+          <img src="assets/nexsk-logo-main.png" alt="Nexsk ネクスク" />
+        </span>
+        <span>
+          ネクスク AI版
+          <small>Next Desk with AI</small>
+        </span>
+      </a>
+      <nav class="desktop-nav" aria-label="主要メニュー">
+        <a href="#problem">課題</a>
+        <a href="#service">サービス</a>
+        <a href="#value">価値</a>
+        <a href="#price">料金</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="button" href="mailto:info@idea-d.jp?subject=ネクスクAI版の無料相談">無料相談</a>
+    </header>
 
-      <main id="top">
-        <section class="hero" aria-labelledby="hero-title">
-          <div class="hero-heading">
-            <p class="section-label">Next Desk with AI</p>
-            <h1 id="hero-title">隣の机に、AIが座った。</h1>
-            <span class="hero-wordmark">
-              <img src="assets/nexsk-logo.svg" alt="ネクスク" />
-            </span>
-          </div>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <p class="label">Next Desk with AI</p>
+          <figure class="hero-logo">
+            <img src="assets/nexsk-logo-main.png" alt="Nexsk ネクスク" />
+          </figure>
+          <h1 id="hero-title">
+            <span>隣の机に、AIが座った。</span>
+          </h1>
+          <img class="hero-visual" src="assets/illust-hero-current.png" alt="チームで課題に向き合う人たちのイラスト" />
+          <svg class="legacy-illust" viewBox="0 0 420 330" role="img" aria-label="業務改善を相談する担当者たち">
+            <path class="illust-fill-paper" d="M35 248c38-44 94-57 165-43 70 14 116 3 178-41 25 38 20 84-16 111-48 37-122 37-207 25-72-10-111-27-120-52Z" />
+            <path class="illust-line" d="M53 255c52-20 105-23 169-10 47 10 91 6 137-15" />
+            <path class="illust-fill-blue" d="M147 172h68v63h-68z" />
+            <path class="illust-line" d="M147 172h68v63h-68zM159 188h34M159 205h24" />
+            <circle class="illust-fill-paper" cx="181" cy="104" r="22" />
+            <path class="illust-line" d="M164 102c7-21 34-27 48-9M176 124c-8 23-18 43-31 64M190 125c14 16 26 33 39 51M143 189l-30 44M226 177l34 39" />
+            <path class="illust-fill-yellow" d="M167 134c29-8 58 0 79 22l-24 42-66-16 11-48Z" />
+            <path class="illust-line" d="M167 134c29-8 58 0 79 22l-24 42-66-16 11-48ZM180 105c2 7 6 12 13 13" />
+            <circle class="illust-fill-paper" cx="87" cy="128" r="19" />
+            <path class="illust-line" d="M70 124c7-18 28-22 40-7M85 147c-5 22-9 43-14 65M93 149c11 15 22 30 33 45M69 211l-26 31M126 194l25 35" />
+            <path class="illust-fill-paper" d="M72 159c24-6 43 0 58 17l-16 34-48-12 6-39Z" />
+            <path class="illust-line" d="M72 159c24-6 43 0 58 17l-16 34-48-12 6-39Z" />
+            <circle class="illust-fill-paper" cx="297" cy="111" r="21" />
+            <path class="illust-line" d="M279 106c7-20 33-23 45-5M293 132c-6 23-13 44-22 64M307 132c13 17 26 34 38 53M270 197l-20 42M345 185l30 36" />
+            <path class="illust-fill-blue" d="M282 144c28-8 53 0 73 21l-18 40-65-12 10-49Z" />
+            <path class="illust-line" d="M282 144c28-8 53 0 73 21l-18 40-65-12 10-49Z" />
+            <path class="illust-thin" d="M235 87h72M244 67h47M317 151c26-4 46 2 61 17M117 79c29 3 50 17 62 42" />
+          </svg>
           <div class="hero-grid">
-            <div>
-              <p class="hero-copy">机を並べて一緒に考えるネクスクが、AIで24時間の相棒になる。</p>
-              <div class="hero-result">
-                <h2>外注に頼りきりの企画・デザイン業務を、社内でまわせる会社へ。</h2>
-                <p>現場やバックオフィスの業務改善を1on1で伴走。人×AIで、改善と内製化を同時に進めます。</p>
-              </div>
+            <p class="hero-copy">机を並べて一緒に考えるネクスクが、AIで24時間の相棒になる。</p>
+            <div class="hero-result">
+              <h2>外注に頼りきりの企画・提案・業務改善を、社内でまわせる会社へ。</h2>
+              <p>現場やバックオフィスの業務改善も、1on1で具体化。</p>
+              <p>人×AIの伴走で、業務改善と内製化を同時に。</p>
               <div class="hero-actions">
                 <a class="button" href="mailto:info@idea-d.jp?subject=ネクスクAI版の無料相談">無料で相談する</a>
+                <a class="button ghost" href="#service">サービスを見る</a>
               </div>
             </div>
-            <div class="hero-visual" aria-label="ネクスクロゴと人とAIが隣の机で働くイメージ">
-              <svg class="illust hero-mini-illust" viewBox="0 0 360 330" role="img" aria-label="人とAIが机を並べているイラスト">
-                <path class="paper" d="M37 222c36-33 72-42 130-29 58 14 88 4 139-34 20 28 27 61 12 89-24 45-92 54-159 45-63-8-109-28-122-71Z" />
-                <path class="line" d="M59 232c43-18 90-18 139-4 38 11 74 7 110-10" />
-                <path class="yellow" d="M44 96c30-41 85-61 129-34 40 25 48 75 19 109-35 41-102 42-140 3-21-21-25-54-8-78Z" />
-                <path class="line" d="M58 91c28-29 74-39 108-17 34 22 38 67 11 93" />
-                <path class="blue" d="M72 175h82v63H72z" />
-                <path class="line" d="M72 175h82v63H72zM84 190h42M84 207h28" />
-                <circle class="skin" cx="104" cy="110" r="19" />
-                <path class="ink" d="M86 105c5-22 32-24 41-7-10-1-18-5-28-2-8 2-11 6-13 9Z" />
-                <path class="line" d="M98 130c-7 18-15 36-25 53M113 130c12 14 23 28 34 44M87 184l-26 37M143 178l25 35" />
-                <path class="paper" d="M89 139c23-5 42 0 58 16l-19 34-49-13 10-37Z" />
-                <path class="line" d="M89 139c23-5 42 0 58 16l-19 34-49-13 10-37ZM103 110c1 6 4 10 10 11" />
-                <rect class="paper" x="205" y="87" width="88" height="126" rx="12" />
-                <path class="line" d="M217 87h64c7 0 12 5 12 12v102c0 7-5 12-12 12h-64c-7 0-12-5-12-12V99c0-7 5-12 12-12ZM225 115h48M225 138h36M225 161h42" />
-                <path class="blue" d="M224 189h50v12h-50z" />
-                <path class="line" d="M249 213v38M231 251h36" />
-                <path class="yellow" d="M239 50h79v34h-79z" />
-                <path class="line" d="M239 50h79v34h-79zM252 67h31" />
-                <path class="line" d="M174 102c20 9 24 31 16 49M192 81c16 4 30 16 37 32" />
-              </svg>
-            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="section gray fade-in" id="problem" aria-labelledby="problem-title">
-          <div class="section-head">
-            <p class="section-label">Problem</p>
+      <section class="section fade-in" id="problem" aria-labelledby="problem-title">
+        <div class="section-head">
+          <div>
+            <p class="label">Problem</p>
             <h2 id="problem-title">こんなお悩み、ありませんか？</h2>
-            <p>人手が足りない。けれど、すぐに増員できるわけではない。だからこそ、日々の雑務を減らし、今いる人の時間を価値ある仕事へ戻します。</p>
           </div>
+          <p>人手が足りない。けれど、すぐに増員できるわけではない。現場の時間が雑務に取られ、本来価値の高い仕事へ向かえない構造を変えます。</p>
+        </div>
+        <figure class="problem-art" aria-label="社内業務や外注指示に悩む担当者たちのイラスト">
+          <img src="assets/illust-problem-current-final.png" alt="" />
+          <figcaption class="sr-only">人材不足で社員育成まで手が回らない。AIコンサル+デザイナーの費用までちょっと。現場の議事録や書類作成に追われて業務がはかどらない。AIのデザインが良いのか判断できるデザイナーがいない。外注先への指示書を作成する時間がない。</figcaption>
+        </figure>
+        <svg class="legacy-illust" viewBox="0 0 640 260" role="img" aria-label="悩みを抱える担当者たち">
+          <path fill="rgba(0,0,0,0.05)" d="M18 230 170 26l452 182-604 22Z" />
+          <path class="illust-fill-paper" d="M150 52h154a18 18 0 0 1 18 18v30a18 18 0 0 1-18 18H150l-38 32 11-32H88a18 18 0 0 1-18-18V70a18 18 0 0 1 18-18h62Z" />
+          <path class="illust-line" d="M150 52h154a18 18 0 0 1 18 18v30a18 18 0 0 1-18 18H150l-38 32 11-32H88a18 18 0 0 1-18-18V70a18 18 0 0 1 18-18h62ZM108 82h130M108 100h90" />
+          <path class="illust-fill-paper" d="M408 54h122a17 17 0 0 1 17 17v30a17 17 0 0 1-17 17h-82l-31 28 8-28h-17a17 17 0 0 1-17-17V71a17 17 0 0 1 17-17Z" />
+          <path class="illust-line" d="M408 54h122a17 17 0 0 1 17 17v30a17 17 0 0 1-17 17h-82l-31 28 8-28h-17a17 17 0 0 1-17-17V71a17 17 0 0 1 17-17ZM426 83h84M426 100h62" />
+          <circle class="illust-fill-paper" cx="262" cy="151" r="19" />
+          <path class="illust-line" d="M244 146c7-19 31-22 42-5M260 171c-7 22-17 42-29 59M274 170c12 15 24 31 36 48" />
+          <path class="illust-fill-blue" d="M243 181c25-8 50 1 67 19l-18 34-58-11 9-42Z" />
+          <path class="illust-line" d="M243 181c25-8 50 1 67 19l-18 34-58-11 9-42Z" />
+          <circle class="illust-fill-paper" cx="376" cy="150" r="20" />
+          <path class="illust-line" d="M358 147c6-20 31-25 45-8M373 171c-6 23-13 42-23 58M388 171c13 16 26 32 38 51" />
+          <path class="illust-fill-yellow" d="M360 181c27-7 51 1 70 20l-20 34-58-13 8-41Z" />
+          <path class="illust-line" d="M360 181c27-7 51 1 70 20l-20 34-58-13 8-41Z" />
+        </svg>
 
-          <div class="bubble-grid">
-            <div class="bubble">外注指示書や議事録に時間を取られて、企画が後回し。</div>
-            <div class="bubble">AIツールを契約したのに、社内で使われていない。</div>
-            <div class="bubble">販促・SNS・メニュー制作まで手が回らない。</div>
-          </div>
+        <div class="tabs" role="tablist" aria-label="課題カテゴリ">
+          <button class="tab-button" id="tab-architecture" role="tab" aria-selected="true" aria-controls="panel-architecture" type="button">建築・空間系</button>
+          <button class="tab-button" id="tab-smb" role="tab" aria-selected="false" aria-controls="panel-smb" type="button">中小企業</button>
+          <button class="tab-button" id="tab-store" role="tab" aria-selected="false" aria-controls="panel-store" type="button">店舗・飲食・宿泊</button>
+        </div>
 
-          <div class="tabs" role="tablist" aria-label="課題カテゴリ">
-            <button class="tab-button" id="tab-architecture" role="tab" aria-selected="true" aria-controls="panel-architecture" type="button">建築・空間系</button>
-            <button class="tab-button" id="tab-smb" role="tab" aria-selected="false" aria-controls="panel-smb" type="button">中小企業</button>
-            <button class="tab-button" id="tab-store" role="tab" aria-selected="false" aria-controls="panel-store" type="button">店舗・飲食・宿泊</button>
-          </div>
-
-          <div class="tab-panel is-active" id="panel-architecture" role="tabpanel" aria-labelledby="tab-architecture">
-            <div class="list-card">
-              <ul>
-                <li>企画提案が常に外注頼みになっている。</li>
-                <li>自社ブランディングを意識した業務改善をしたい。</li>
-                <li>現場の雑務、議事録・外注指示書・工程表・見積りなどに時間が奪われ、本来の仕事ができない。</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="tab-panel" id="panel-smb" role="tabpanel" aria-labelledby="tab-smb">
-            <div class="list-card">
-              <ul>
-                <li>ツールは契約したが、社内に定着しない。</li>
-                <li>何から自動化すべきか分からない。</li>
-                <li>属人化した業務をAIで内製化したい。</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="tab-panel" id="panel-store" role="tabpanel" aria-labelledby="tab-store">
-            <div class="list-card">
-              <ul>
-                <li>販促・SNS・メニュー・接客ツールを作る手が足りない。</li>
-                <li>新業態や多店舗展開のディレクションを継続的に相談したい。</li>
-                <li>現場運営とブランドづくりをつなぐ人材が不足している。</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="message-card">
-            <div>
-              <h3>人材不足は、業務改善で解く。</h3>
-              <p>現場の雑務をAIで効率化して稼働時間を短縮し、空いた時間を本来価値の高い仕事へ回して稼働率を上げる。これがネクスクAI版の一番の目的です。</p>
-            </div>
-            <div class="boundary">
-              CG・模型など「手でつくる制作物」はAIが代用しません。AIが効かせるのは、議事録・指示書・工程表・見積りといった段取りと文書の雑務です。
-            </div>
-          </div>
-        </section>
-
-        <section class="section fade-in" id="why" aria-labelledby="why-title">
-          <div class="two-col">
-            <svg class="illust" viewBox="0 0 360 310" aria-label="課題に悩む人物のイラスト">
-              <path class="yellow" d="M64 68c38-40 95-45 135-12 39 32 42 91 5 128-41 42-111 34-145-11-25-33-22-77 5-105Z" />
-              <path class="line" d="M77 70c34-28 80-32 112-6M217 91c21 36 11 76-20 99" />
-              <path class="paper" d="M68 204c54-24 120-26 196-6 16 4 29 15 36 31-56 29-121 39-191 25-33-7-47-23-41-50Z" />
-              <path class="line" d="M83 217c40-18 93-20 156-7" />
-              <circle class="skin" cx="161" cy="98" r="20" />
-              <path class="ink" d="M141 93c6-20 31-25 43-8-15 0-27 2-43 8Z" />
-              <path class="paper" d="M136 129c26-8 51-4 70 15l-17 52-61-11 8-56Z" />
-              <path class="line" d="M136 129c26-8 51-4 70 15l-17 52-61-11 8-56ZM150 99c2 8 7 13 14 14M130 149l-42 32M205 149l45 31M132 186l-20 43M188 196l18 39" />
-              <path class="line" d="M243 66h55M249 84h43M236 102h69" />
-              <path class="blue" d="M76 154h46v34H76z" />
-              <path class="line" d="M76 154h46v34H76zM84 166h28" />
-            </svg>
-            <div class="text-block">
-              <p class="section-label">Why Now</p>
-              <h2 id="why-title">なぜ、今までのやり方では解決しないのか。</h2>
-              <h3>外注は単発で終わる</h3>
-              <p>成果物は納品されても、考え方や進め方が社内に残らない。</p>
-              <h3>顧問は手が動きにくい</h3>
-              <p>戦略は見えても、現場の文書や段取りまで落ちないことがある。</p>
-              <h3>AIツールは放置される</h3>
-              <p>入れただけでは、誰が何にどう使うかが定まらない。</p>
-            </div>
-          </div>
-
-          <div class="mini-grid" style="margin-top: 34px;">
-            <article class="mini-card">
-              <h3>議事録の後回し</h3>
-              <p>「言った言わない」の手戻りが起きる。</p>
-            </article>
-            <article class="mini-card">
-              <h3>指示書に半日</h3>
-              <p>外注指示書に時間を取られ、企画に手が回らない。</p>
-            </article>
-            <article class="mini-card">
-              <h3>属人化</h3>
-              <p>工程表・見積りが担当者の頭の中だけにある。</p>
-            </article>
-          </div>
-
-          <p class="conclusion">足りないのは、戦略も分かり、手も動かし、AIも使いこなす、隣の机の相棒です。</p>
-        </section>
-
-        <section class="section yellow-band fade-in" id="service" aria-labelledby="service-title">
-          <div class="section-head">
-            <p class="section-label">Service</p>
-            <h2 id="service-title">ネクスク AI版とは。</h2>
-            <p class="one-line">経験あるディレクターと、24時間動くAIが、依頼企業の隣の机に並び、日常業務を伴走するサービスです。</p>
-          </div>
-
-          <div class="two-col">
-            <div class="text-block">
-              <h3>Next Desk。机を並べて、一緒に考える。</h3>
-              <p>従来のネクスクが大切にしてきた共創協働の思想はそのままに、AIをもう一つの机として加えます。人が方向を決め、AIが下支えし、社内でまわせる仕組みへ育てます。</p>
-            </div>
-            <div class="layer-stack" aria-label="3レイヤー図解">
-              <div class="layer">
-                <span class="layer-number">1</span>
-                <div>
-                  <h3>人：ギルド型チーム</h3>
-                  <p>戦略・ディレクション・壁打ち・品質判断を担う。</p>
-                </div>
-              </div>
-              <div class="layer">
-                <span class="layer-number">2</span>
-                <div>
-                  <h3>AI：24時間の相棒</h3>
-                  <p>議事録、資料ドラフト、調査、定型業務を高速化する。</p>
-                </div>
-              </div>
-              <div class="layer">
-                <span class="layer-number">3</span>
-                <div>
-                  <h3>仕組み：月定額</h3>
-                  <p>単発で終わらせず、検証と改善を日常に組み込む。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section fade-in" id="change" aria-labelledby="change-title">
-          <div class="section-head">
-            <p class="section-label">Before / After</p>
-            <h2 id="change-title">AIで何が変わるか。</h2>
-            <p>AIの機能自慢ではなく、日常業務の詰まりをどう変えるかに絞って設計します。</p>
-          </div>
-
-          <div class="table-card">
-            <table>
-              <thead>
-                <tr>
-                  <th>業務シーン</th>
-                  <th>これまで（人のみ）</th>
-                  <th>ネクスクAI版（人×AI）</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>打合せ</td>
-                  <td>議事録は後日、抜け漏れも。</td>
-                  <td>その場で議事録・ToDo・決定事項を自動整理。</td>
-                </tr>
-                <tr>
-                  <td>企画・提案</td>
-                  <td>叩き台に数日。</td>
-                  <td>AIで初稿を即日、人が磨いて質を担保。</td>
-                </tr>
-                <tr>
-                  <td>調査・情報整理</td>
-                  <td>担当者の手が止まる。</td>
-                  <td>AIが一次調査、要点を人が判断。</td>
-                </tr>
-                <tr>
-                  <td>社内定着</td>
-                  <td>一部の人に属人化。</td>
-                  <td>使い方を仕組み化し、社員がAIを使えるように育成。</td>
-                </tr>
-                <tr>
-                  <td>コスト</td>
-                  <td>外注の都度発生。</td>
-                  <td>月定額で予測可能・内製化で逓減。</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="note">AIは道具ではなく、課題を解決するためのパートナーです。判断と世界観づくりは人が担います。</p>
-        </section>
-
-        <section class="section gray fade-in" id="value" aria-labelledby="value-title">
-          <div class="section-head">
-            <p class="section-label">Value</p>
-            <h2 id="value-title">その時間を、ネクスクで価値ある仕事へ。</h2>
-            <p>効率化だけで終わらせず、人とブランドの力を上げるためにAIを使います。</p>
-          </div>
-
-          <div class="value-grid">
-            <article class="feature-card">
-              <span class="feature-icon">01</span>
-              <h3>内製化</h3>
-              <p>外注依存から、社内で企画・指示・改善をまわせる体制へ。</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-icon">02</span>
-              <h3>時間の価値を高める</h3>
-              <p>AIを活用しデザイン思考を身につけ、生まれた時間を本来価値の高い仕事へ。</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-icon">03</span>
-              <h3>ブランディング視点</h3>
-              <p>単なる効率化ではなく、会社や店舗の「らしさ」を守りながら改善します。</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-icon">04</span>
-              <h3>共創協働</h3>
-              <p>評論家ではなく、スタッフの一員として日常業務から伴走します。</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section fade-in" id="flow" aria-labelledby="flow-title">
-          <div class="section-head">
-            <p class="section-label">Flow</p>
-            <h2 id="flow-title">導入までのステップ。</h2>
-            <p>小さく始めて、役割分担を明確にし、検証しながら業務へ定着させます。</p>
-          </div>
-
-          <div class="flow">
-            <article class="flow-step">
-              <div>
-                <h3>無料相談</h3>
-                <p>現状の課題、雑務、外注依存、AI利用状況を整理します。</p>
-              </div>
-            </article>
-            <article class="flow-step">
-              <div>
-                <h3>伴走プラン設計</h3>
-                <p>人×AIの役割分担を合意し、改善テーマを決めます。</p>
-              </div>
-            </article>
-            <article class="flow-step">
-              <div>
-                <h3>月定額でスタート</h3>
-                <p>議事録、資料、調査、テンプレートなどから実務に組み込みます。</p>
-              </div>
-            </article>
-            <article class="flow-step">
-              <div>
-                <h3>検証・改善</h3>
-                <p>成果をブランドや中長期ビジョンにフィードバックします。</p>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section yellow-band fade-in" id="price" aria-labelledby="price-title">
-          <div class="section-head align-left">
-            <p class="section-label">Price</p>
-            <h2 id="price-title">費用の考え方。</h2>
-            <p>継続伴走は月定額プランで設計します。<br />具体的な金額は、課題の範囲と伴走頻度に応じて個別にご相談ください。</p>
-          </div>
-
-          <div class="plan-grid">
-            <article class="plan">
-              <h3>ライト</h3>
-              <p class="price">要相談</p>
-              <p>相談・壁打ちを中心に、AI活用の入口を整えるプラン。</p>
-              <ul class="plain-list">
-                <li>課題整理</li>
-                <li>改善テーマ設計</li>
-                <li>基本テンプレート提案</li>
-              </ul>
-            </article>
-            <article class="plan">
-              <h3>スタンダード</h3>
-              <p class="price">要相談</p>
-              <p>議事録、指示書、資料ドラフトなど、実務へ組み込むプラン。</p>
-              <ul class="plain-list">
-                <li>月次伴走</li>
-                <li>運用設計</li>
-                <li>プロンプト・型の整備</li>
-              </ul>
-            </article>
-            <article class="plan">
-              <h3>伴走フル</h3>
-              <p class="price">要相談</p>
-              <p>業務改善、内製化、人材育成、ブランドへの接続まで含めるプラン。</p>
-              <ul class="plain-list">
-                <li>継続ディレクション</li>
-                <li>社内定着支援</li>
-                <li>改善サイクル運用</li>
-              </ul>
-            </article>
-          </div>
-
-          <div class="price-box">
-            <h3>別途費用となるもの</h3>
-            <ul class="check-list">
-              <li>制作物：図面・CG・模型・ロゴ・HP等。</li>
-              <li>企業理念など定款に関わるブランディングライティング。</li>
-              <li>アプリ制作、GPTs、納品物、仕組み化、マニュアル化、システム構築。</li>
-              <li>研修、テンプレート作成、業務フロー設計。</li>
+        <div class="tab-panel is-active" id="panel-architecture" role="tabpanel" aria-labelledby="tab-architecture">
+          <div class="list-box">
+            <ul>
+              <li>企画提案や資料作成にAIを活用したいが、業務への落とし込み方が分からない。</li>
+              <li>自社ブランディングを崩さず、AIを活用した業務改善を進めたい。</li>
+              <li>AIでデザイン案を考えてみたが、そもそも良し悪しの判断ができない。</li>
+              <li>議事録・報告書・外注指示書・工程表・見積り・バックオフィス業務などをAIで効率化し、本来の仕事へ時間を戻したい。</li>
             </ul>
-            <p>空間・店舗設計の見積は「坪単価 × 業態 × 難易度」で個別算定します。</p>
           </div>
-        </section>
-
-        <section class="section fade-in" id="reason" aria-labelledby="reason-title">
-          <div class="section-head">
-            <p class="section-label">Reason</p>
-            <h2 id="reason-title">選ばれる理由・実績。</h2>
-            <p>机上のAI活用ではなく、現場に接地したデザイン実務から改善を組み立てます。</p>
+        </div>
+        <div class="tab-panel" id="panel-smb" role="tabpanel" aria-labelledby="tab-smb">
+          <div class="list-box">
+            <ul>
+              <li>ツールは契約したが、社内に定着しない。</li>
+              <li>何から自動化すべきか分からない。</li>
+              <li>属人化した業務をAIで内製化したい。</li>
+            </ul>
           </div>
-
-          <div class="reason-grid">
-            <article class="reason-card">
-              <h3>30年超の実務</h3>
-              <p>空間設計・ブランディングの現場で培った判断軸があります。</p>
-            </article>
-            <article class="reason-card">
-              <h3>論理×デザイン思考</h3>
-              <p>業務の筋道を整理しながら、体験とブランドの質を落としません。</p>
-            </article>
-            <article class="reason-card">
-              <h3>現場の接地面まで踏む</h3>
-              <p>保健所・消防・建築基準法など、実務の制約まで見据えて伴走します。</p>
-            </article>
+        </div>
+        <div class="tab-panel" id="panel-store" role="tabpanel" aria-labelledby="tab-store">
+          <div class="list-box">
+            <ul>
+              <li>販促・SNS・メニュー・接客ツールを作る手が足りない。</li>
+              <li>新業態や多店舗展開のディレクションを継続的に相談したい。</li>
+              <li>現場運営とブランドづくりをつなぐ人材が不足している。</li>
+            </ul>
           </div>
+        </div>
 
-          <div class="voice-grid" style="margin-top: 14px;">
-            <article class="placeholder">
-              <h3>導入事例 01</h3>
-              <p>イメージ挿入予定。業種、課題、改善前後、成果コメントを差し替え。</p>
-              <small>CASE PLACEHOLDER</small>
-            </article>
-            <article class="placeholder">
-              <h3>お客様の声 02</h3>
-              <p>イメージ挿入予定。担当者コメント、AI定着の変化を差し替え。</p>
-              <small>VOICE PLACEHOLDER</small>
-            </article>
-            <article class="placeholder">
-              <h3>導入事例 03</h3>
-              <p>イメージ挿入予定。店舗・建築・中小企業などの事例を差し替え。</p>
-              <small>CASE PLACEHOLDER</small>
-            </article>
+        <div class="statement">
+          <div>
+            <h3>業務改善で解決する</h3>
+            <p>現場の雑務をAIで効率化して稼働時間を短縮し、空いた時間を本来価値の高い仕事へ回して稼働率を上げる。これがネクスクAI版の一番の目的です。</p>
           </div>
-        </section>
+          <div class="boundary">
+            <strong>誠実な線引き</strong>
+            <p>AIが代わりに行うのは、CG・模型などの制作そのものではありません。議事録、指示書、工程表、見積り、報告書など、現場を進めるための段取りや文書業務、デザイン提案資料の作成などを効率化します。</p>
+          </div>
+        </div>
+      </section>
 
-        <section class="section gray fade-in" id="faq" aria-labelledby="faq-title">
-          <div class="section-head">
-            <p class="section-label">FAQ</p>
+      <section class="section fade-in" id="why" aria-labelledby="why-title">
+        <div class="section-head">
+          <div>
+            <p class="label">Why Now</p>
+            <h2 id="why-title">なぜ、今までのやり方では解決しないのか。</h2>
+          </div>
+          <p>外注、コンサル、AIツール。そのどれか一つだけでは、日常業務の中に改善が残りにくいからです。</p>
+        </div>
+        <img class="section-visual narrow" src="assets/illust-office-current.png" alt="電話や書類対応に追われる担当者のイラスト" />
+        <div class="grid-3">
+          <article class="card">
+            <h3>外注は単発で終わる</h3>
+            <p>成果物は納品されても、考え方や進め方が社内に残りません。</p>
+          </article>
+          <article class="card">
+            <h3>コンサルは手が動きにくい</h3>
+            <p>戦略は見えても、現場の文書や段取りまで落ちないことがあります。</p>
+          </article>
+          <article class="card">
+            <h3>AIツールは放置される</h3>
+            <p>入れただけでは、誰が何にどう使うかが定まりません。</p>
+          </article>
+        </div>
+        <div class="list-box" style="margin-top: 14px;">
+          <ul>
+            <li>議事録の後回しで「言った言わない」の手戻りが起きる。</li>
+            <li>外注指示書作成に半日とられ、企画に手が回らない。</li>
+            <li>工程表・見積りが担当者の頭の中だけで属人化する。</li>
+            <li>事務・段取りの雑務が減らず、残業が常態化する。</li>
+            <li>AIを契約したが、何に使うか分からず月額だけ払っている。</li>
+          </ul>
+        </div>
+        <p class="conclusion">足りないのは、戦略も分かり、手も動かし、AIも使いこなす、隣の机の相棒です。</p>
+      </section>
+
+      <section class="section fade-in" id="service" aria-labelledby="service-title">
+        <div class="section-head">
+          <div>
+            <p class="label">Service</p>
+            <h2 id="service-title">ネクスク AI版とは。</h2>
+          </div>
+          <p>経験あるディレクターと、24時間動くAIが、<br />依頼企業の隣の机に並び、日常業務を伴走するサービスです。</p>
+        </div>
+        <img class="section-visual wide" src="assets/illust-partner-current.png" alt="机を挟んで伴走するパートナー同士のイラスト" />
+        <div class="definition">
+          <div>
+            <h3 class="concept-title"><span class="en">Next Desk</span><span class="jp">机を並べて、一緒に考える。</span></h3>
+            <p>共創協働の思想はそのままに、AIがもう一つの机として参加します。人が方向を決め、AIが下支えし、時には現場にて一緒に考えながら、社内でまわせる仕組みへ育てます。</p>
+            <p>近い将来、AIでの業務改善の波は必ず来ます。人手不足を解消する最善の方法として、今から日常業務に組み込んでいきます。</p>
+          </div>
+          <div class="layer-stack">
+            <div class="layer">
+              <span class="layer-number">01</span>
+              <div>
+                <h3>人：ギルド型チーム</h3>
+                <p>戦略・ディレクション・壁打ち・品質判断を担う。</p>
+              </div>
+            </div>
+            <div class="layer">
+              <span class="layer-number">02</span>
+              <div>
+                <h3>AI：24時間の相棒</h3>
+                <p>議事録、資料ドラフト、調査、定型業務を高速化する。</p>
+              </div>
+            </div>
+            <div class="layer">
+              <span class="layer-number">03</span>
+              <div>
+                <h3>仕組み：月定額</h3>
+                <p>単発で終わらせず、検証と改善を日常に組み込む。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-4 solution-grid" style="margin-top: 14px;">
+          <article class="card"><h3>稼働率を上げる</h3><p>雑務の効率化で、企画・提案に使える時間を増やします。</p></article>
+          <article class="card"><h3>内製化する</h3><p>属人化・外注依存を解き、社内でまわせる型へ。</p></article>
+          <article class="card"><h3>定着させる</h3><p>AIの使い方を業務に即して設計し、社員が使える状態へ。</p></article>
+          <article class="card"><h3>ブランドへ戻す</h3><p>生まれた時間を、企画・提案・ブランディングなど、生産性を高める仕事へ回します。</p></article>
+        </div>
+      </section>
+
+      <section class="section fade-in" id="change" aria-labelledby="change-title">
+        <div class="section-head">
+          <div>
+            <p class="label">Before / After</p>
+            <h2 id="change-title">AIで何が変わるか。</h2>
+          </div>
+          <p>AIの機能自慢ではなく、日常業務の詰まりをどう変えるかに絞って設計します。</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>業務シーン</th>
+                <th>これまで（人のみ）</th>
+                <th>ネクスクAI版（人×AI）</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>打合せ</td><td>議事録は後日、抜け漏れも。</td><td>その場で議事録・ToDo・決定事項を自動整理。</td></tr>
+              <tr><td>企画・提案</td><td>叩き台に数日。</td><td>AIで初稿を即日、人が磨いて質を担保。</td></tr>
+              <tr><td>調査・情報整理</td><td>担当者の手が止まる。</td><td>AIが一次調査、要点を人が判断。</td></tr>
+              <tr><td>社内定着</td><td>一部の人に属人化。</td><td>使い方を仕組み化し、社員がAIを使えるように育成。</td></tr>
+              <tr><td>コスト</td><td>外注の都度発生。</td><td>月定額で予測可能・内製化で逓減。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">AIは道具ではなく、課題を解決するためのパートナーです。判断と世界観づくりは人が担います。</p>
+      </section>
+
+      <section class="section fade-in" id="value" aria-labelledby="value-title">
+        <div class="section-head">
+          <div>
+            <p class="label">Value</p>
+            <h2 id="value-title">提供価値。</h2>
+          </div>
+          <p>効率化だけで終わらせず、人とブランドの力を上げるためにAIを使います。</p>
+        </div>
+        <img class="section-visual wide" src="assets/illust-team-current.png" alt="チームで改善に取り組む人たちのイラスト" />
+        <div class="grid-4 value-grid">
+          <article class="card"><span class="value-icon">01</span><h3>内製化</h3><p>外注依存から、社内で企画・指示・改善をまわせる体制へ。</p></article>
+          <article class="card"><span class="value-icon">02</span><h3>「時間」の価値を高める</h3><p>AIを活用しデザイン思考を身につけ、生まれた時間を本来価値の高い仕事へ回します。</p></article>
+          <article class="card"><span class="value-icon">03</span><h3>ブランディング視点</h3><p>単なる効率化ではなく、会社や店舗の「らしさ」を守りながら改善します。</p></article>
+          <article class="card"><span class="value-icon">04</span><h3>共創協働</h3><p>評論家ではなく、スタッフの一員として日常業務から伴走します。</p></article>
+        </div>
+      </section>
+
+      <section class="section fade-in" id="flow" aria-labelledby="flow-title">
+        <div class="section-head">
+          <div>
+            <p class="label">Flow</p>
+            <h2 id="flow-title">導入フロー。</h2>
+          </div>
+          <p>小さく始めて、役割分担を明確にし、検証しながら業務へ定着させます。</p>
+        </div>
+        <div class="flow">
+          <article class="flow-step"><span>STEP 01</span><h3>無料相談</h3><p>現状の課題、雑務、外注依存、AI利用状況を整理します。</p></article>
+          <article class="flow-step"><span>STEP 02</span><h3>伴走プラン設計</h3><p>人×AIの役割分担を合意し、改善テーマを決めます。</p></article>
+          <article class="flow-step"><span>STEP 03</span><h3>月定額でスタート</h3><p>議事録、資料、調査、テンプレートなどから実務に組み込みます。</p></article>
+          <article class="flow-step"><span>STEP 04</span><h3>検証・改善</h3><p>成果をブランドや中長期ビジョンにフィードバックします。</p></article>
+        </div>
+      </section>
+
+      <section class="section fade-in" id="price" aria-labelledby="price-title">
+        <div class="section-head">
+          <div>
+            <p class="label">Price</p>
+            <h2 id="price-title">費用の考え方。</h2>
+          </div>
+          <p>継続伴走は月定額プランで設計します。<br />課題の範囲と伴走頻度に応じて、最適なプランを個別に設計します。</p>
+        </div>
+        <div class="plan-grid">
+          <article class="plan"><h3>ライトプラン</h3><p class="price">¥150,000〜</p><p>相談・壁打ちを中心に、AI活用の入口を整えるプラン。</p></article>
+          <article class="plan"><h3>スタンダードプラン</h3><p class="price">¥250,000〜</p><p>議事録、指示書、資料ドラフトなど、実務へ組み込むプラン。</p></article>
+          <article class="plan"><h3>伴走フルプラン</h3><p class="price">¥400,000〜</p><p>業務改善、内製化、人材育成、ブランドへの接続まで深く伴走し、別途項目も内容により範囲設計するプラン。</p></article>
+        </div>
+        <div class="price-note">
+          <h3>別途費用・要相談となるもの</h3>
+          <p class="note">以下は原則として別途費用ですが、内容や作業量によりプラン内に含めて設計できる場合があります。</p>
+          <ul class="plain-list">
+            <li>制作物：図面・CG・模型・ロゴ・HP等、成果物として別納品になるもの。</li>
+            <li>企業理念など定款に関わるブランディングライティング。</li>
+            <li>個別のGPTs / AI Agent等の構築。</li>
+            <li>オリジナルの見積積算システム等の構築。</li>
+            <li>Webアプリ・業務システムの開発。</li>
+            <li>データベース接続やAPI連携実装。</li>
+            <li>納品物、仕組み化、マニュアル化、研修、テンプレート作成、業務フロー設計。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section fade-in" id="reason" aria-labelledby="reason-title">
+        <div class="section-head">
+          <div>
+            <p class="label">Reason</p>
+            <h2 id="reason-title">選ばれる理由。</h2>
+          </div>
+          <p>机上のAI活用ではなく、現場に接地したデザイン実務から改善を組み立てます。</p>
+        </div>
+        <img class="section-visual wide" src="assets/illust-handshake-current.png" alt="合意形成と伴走を表す握手のイラスト" />
+        <div class="grid-3">
+          <article class="card"><h3>30年超の実務</h3><p>空間設計・ブランディングの現場で培った判断軸があります。</p></article>
+          <article class="card"><h3>論理×デザイン思考</h3><p>業務の筋道を整理しながら、体験とブランドの質を落としません。</p></article>
+          <article class="card"><h3>現場の接地面まで踏む</h3><p>遵法性と実務の制約まで見据えて伴走します。</p></article>
+        </div>
+      </section>
+
+      <section class="section fade-in" id="faq" aria-labelledby="faq-title">
+        <div class="section-head">
+          <div>
+            <p class="label">FAQ</p>
             <h2 id="faq-title">よくある質問。</h2>
           </div>
+          <p>導入前に気になりやすい点を、先に整理しました。</p>
+        </div>
+        <div class="faq-list">
+          <details><summary>AIに任せてもクウォリティは保たれますか？</summary><p>判断は人が担います。AIは議事録、整理、初稿、定型作業の下支えをし、最終的な品質と世界観は経験あるディレクターが確認します。</p></details>
+          <details><summary>社内にAIに詳しい人がいなくても大丈夫ですか？</summary><p>大丈夫です。使い方の設計、テンプレート化、社員が使える状態への育成まで含めて伴走します。</p></details>
+          <details><summary>契約期間・解約について教えてください。</summary><p>AI活用の定着と業務改善の効果検証には一定の運用期間が必要なため、基本の最低契約期間は6か月を目安としています。伴走範囲や運用体制に応じて、無料相談時に前提を確認します。</p></details>
+          <details><summary>制作物はどこまで込みですか？</summary><p>制作物として図面・CG・模型・ロゴ・HP等、成果物として別納品になるものは原則として別途費用です。個別のGPTs / AI Agent等の構築、見積積算システム、Webアプリ・業務システム、データベース接続やAPI連携実装、研修、マニュアル化なども、内容や作業量によりプラン内に含められる場合があります。無料相談時に範囲を確認します。</p></details>
+          <details><summary>対応エリアやオンライン対応は可能ですか？</summary><p>対応エリア・オンライン可否は要相談です。業務内容や打合せ頻度に合わせて進め方を設計します。</p></details>
+        </div>
+      </section>
 
-          <div class="faq-list">
-            <details>
-              <summary>AIに任せると品質が落ちませんか？</summary>
-              <p>判断は人が担います。AIは議事録、整理、初稿、定型作業の下支えをし、最終的な品質と世界観は経験あるディレクターが確認します。</p>
-            </details>
-            <details>
-              <summary>社内にAIに詳しい人がいなくても大丈夫ですか？</summary>
-              <p>大丈夫です。使い方の設計、テンプレート化、社員が使える状態への育成まで含めて伴走します。</p>
-            </details>
-            <details>
-              <summary>契約期間・解約について教えてください。</summary>
-              <p>契約期間や解約条件は、伴走範囲と運用体制に応じて要相談です。無料相談時に前提を確認します。</p>
-            </details>
-            <details>
-              <summary>制作物はどこまで込みですか？</summary>
-              <p>図面・CG・模型・ロゴ・HP等の制作物、GPTs、システム構築、研修、マニュアル化などは別途費用です。伴走プランでは主に改善設計と日常業務への定着を扱います。</p>
-            </details>
-            <details>
-              <summary>対応エリアやオンライン対応は可能ですか？</summary>
-              <p>対応エリア・オンライン可否は要相談です。業務内容や打合せ頻度に合わせて進め方を設計します。</p>
-            </details>
-          </div>
-        </section>
+      <section class="final-cta fade-in" id="contact" aria-labelledby="contact-title">
+        <p class="label">Contact</p>
+        <h2 id="contact-title">まずは“隣の机”を体験してください。</h2>
+        <p>現場の雑務、外注依存、AI導入の停滞。いま詰まっている仕事を一つ持って、無料相談にどうぞ。</p>
+        <div class="contact-row">
+          <a class="button" href="mailto:info@idea-d.jp?subject=ネクスクAI版の無料相談">無料で相談する</a>
+          <a href="mailto:info@idea-d.jp">mail info@idea-d.jp</a>
+          <a href="tel:0427854173">TEL 042-785-4173</a>
+        </div>
+      </section>
+    </main>
 
-        <section class="final-cta fade-in" id="contact" aria-labelledby="contact-title">
-          <div class="final-inner">
-            <p class="section-label">Contact</p>
-            <h2 id="contact-title">まずは“隣の机”を体験してください。</h2>
-            <p>現場の雑務、外注依存、AI導入の停滞。いま詰まっている仕事を一つ持って、無料相談へお越しください。</p>
-            <div class="contact-row">
-              <a class="button" href="mailto:info@idea-d.jp?subject=ネクスクAI版の無料相談">無料で相談する</a>
-              <a href="mailto:info@idea-d.jp">mail info@idea-d.jp</a>
-              <a href="tel:0427854173">TEL 042-785-4173</a>
-            </div>
-          </div>
-        </section>
-      </main>
+    <footer>
+      <span>ネクスク AI版</span>
+      <a href="#top">Page Top</a>
+    </footer>
 
-      <footer>
-        <span>ネクスク AI版</span>
-        <a href="#top">PAGE TOP</a>
-      </footer>
-    </div>
-
-    <div class="mobile-cta" aria-label="スマートフォン固定CTA">
+    <div class="mobile-cta">
       <a class="button" href="mailto:info@idea-d.jp?subject=ネクスクAI版の無料相談">無料で相談する</a>
     </div>
 
@@ -1541,11 +1576,10 @@
 
     <!--
       差し替え箇所
-      - コピー文言：ヒーロー、課題タブ、導入事例、FAQ、最終CTAの本文。
+      - コピー文言：ヒーロー、課題タブ、FAQ、最終CTA。
       - 連絡先：mailtoリンク、info@idea-d.jp、TEL 042-785-4173。
-      - プレースホルダ画像：導入事例3件の枠。実写画像を入れる場合はimgタグを追加。
-      - 料金：ライト／スタンダード／伴走フルの「要相談」表示。
-      - 別途費用：制作物、研修、システム構築、業務フロー設計などの範囲。
+      - 料金：ライトプラン／スタンダードプラン／伴走フルプランの月額表示。
+      - 別途費用：制作物、個別のGPTs / AI Agent、見積積算システム、Webアプリ・業務システム、データベース接続、API連携、研修、業務フロー設計などの範囲。
     -->
   </body>
 </html>
