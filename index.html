@@ -679,11 +679,7 @@
       }
 
       .statement > div:first-child {
-        max-width: 960px;
-        display: grid;
-        grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
-        gap: 28px;
-        align-items: start;
+        max-width: 1080px;
       }
 
       .statement h3,
@@ -717,7 +713,7 @@
 
       .statement > div:first-child p {
         max-width: 920px;
-        margin-top: 0;
+        margin-top: 16px;
         color: var(--ink);
         font-size: clamp(1.08rem, 1.8vw, 1.34rem);
         line-height: 1.78;
@@ -844,11 +840,13 @@
       }
 
       .why-grid .card h3 {
+        color: #fff;
         text-align: center;
+        -webkit-text-stroke: 0.25px currentColor;
       }
 
       .why-grid .card p {
-        color: var(--ink);
+        color: #fff;
       }
 
       .why-number {
@@ -1075,6 +1073,33 @@
         transform: translateY(-50%);
       }
 
+      .seminar-plan {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1.45fr);
+        gap: clamp(20px, 4vw, 44px);
+        align-items: center;
+      }
+
+      .seminar-plan .seminar-head h3 {
+        font-size: clamp(1.5rem, 2.6vw, 2rem);
+      }
+
+      .seminar-plan .seminar-body {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(240px, 0.85fr);
+        gap: clamp(18px, 3vw, 34px);
+        align-items: start;
+      }
+
+      .seminar-plan .seminar-body p {
+        margin: 0;
+      }
+
+      .seminar-plan .plan-detail {
+        margin: 0;
+      }
+
       .price-note {
         margin-top: 14px;
         padding: 28px;
@@ -1203,12 +1228,11 @@
         }
 
         .statement > div:first-child {
-          grid-template-columns: 1fr;
-          gap: 12px;
+          max-width: none;
         }
 
         .statement > div:first-child p {
-          margin-top: 0;
+          margin-top: 12px;
         }
 
         .hero-visual {
@@ -1226,6 +1250,11 @@
         .voice-grid,
         .flow {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .seminar-plan,
+        .seminar-plan .seminar-body {
+          grid-template-columns: 1fr;
         }
       }
 
@@ -1717,15 +1746,19 @@
               <li>セミナー・研修は内容により範囲設計</li>
             </ul>
           </article>
-          <article class="plan">
-            <h3>セミナー</h3>
-            <p class="price">費用は要相談</p>
-            <p>AI活用や業務改善の考え方を、社内に共有するための単発・社内向けプラン。</p>
-            <ul class="plan-detail">
-              <li>社内向けAI活用セミナー</li>
-              <li>業務改善テーマの共有</li>
-              <li>内容・時間・人数に応じて個別設計</li>
-            </ul>
+          <article class="plan seminar-plan">
+            <div class="seminar-head">
+              <h3>セミナー</h3>
+              <p class="price">費用は要相談</p>
+            </div>
+            <div class="seminar-body">
+              <p>AI活用や業務改善の考え方を、社内に共有するための単発・社内向けプラン。</p>
+              <ul class="plan-detail">
+                <li>社内向けAI活用セミナー</li>
+                <li>業務改善テーマの共有</li>
+                <li>内容・時間・人数に応じて個別設計</li>
+              </ul>
+            </div>
           </article>
         </div>
         <p class="note">月の定例MTGは、基本的にWeb会議で実施します。対面対応が必要な場合は、内容やエリアに応じて個別にご相談ください。</p>
