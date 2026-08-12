@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ネクスク AI版 | 隣の机に、AIが座った。</title>
+    <title>ネクスク AI版 | 足りない人手は、業務改善で補う。</title>
     <meta
       name="description"
       content="経験あるディレクターと24時間動くAIが、隣の机に並び、業務改善と内製化を伴走するネクスク AI版のランディングページ。"
@@ -248,6 +248,25 @@
         font-size: clamp(0.95rem, 1.34vw, 1.12rem);
         font-weight: 900;
         white-space: nowrap;
+      }
+
+      .hero-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 20px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .hero-tags li {
+        padding: 7px 12px;
+        border: 2px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.78);
+        color: var(--ink);
+        font-size: 0.9rem;
+        font-weight: 950;
       }
 
       .hero-result {
@@ -514,6 +533,13 @@
           var(--yellow);
       }
 
+      #diagnosis::before {
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0 18%, transparent 18% 100%),
+          linear-gradient(24deg, transparent 0 68%, rgba(255, 255, 255, 0.16) 68%),
+          var(--yellow);
+      }
+
       .section-head {
         max-width: 760px;
         margin: 0 auto clamp(28px, 4vw, 44px);
@@ -525,17 +551,18 @@
         color: var(--ink);
         font-size: clamp(1.8rem, 3.6vw, 3rem);
         line-height: 1.2;
-        font-weight: 950;
-        -webkit-text-stroke: 0.9px currentColor;
-        text-shadow: 0.8px 0 0 currentColor;
+        font-weight: 850;
+        -webkit-text-stroke: 0.35px currentColor;
+        text-shadow: 0.35px 0 0 currentColor;
       }
 
       #problem-title {
         font-size: clamp(2rem, 4.4vw, 3.75rem);
-        -webkit-text-stroke: 1.35px currentColor;
+        font-weight: 880;
+        -webkit-text-stroke: 0.5px currentColor;
         text-shadow:
-          1.2px 0 0 currentColor,
-          0 0.8px 0 currentColor;
+          0.45px 0 0 currentColor,
+          0 0.35px 0 currentColor;
       }
 
       .section-head p:not(.label) {
@@ -754,6 +781,92 @@
         text-align: center;
       }
 
+      .reason-grid .card h3 {
+        text-align: center;
+      }
+
+      .value-grid .card {
+        min-height: 100%;
+        border-width: 3px;
+      }
+
+      .reason-grid .card {
+        min-height: 100%;
+        border-width: 3px;
+      }
+
+      .diagnosis-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .diagnosis-grid .card {
+        min-height: 100%;
+        border-width: 3px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 248, 218, 0.96)),
+          #fff;
+      }
+
+      .diagnosis-grid .card h3 {
+        text-align: center;
+      }
+
+      .diagnosis-number {
+        display: grid;
+        width: clamp(60px, 5.4vw, 78px);
+        height: clamp(60px, 5.4vw, 78px);
+        margin: 0 auto 18px;
+        place-items: center;
+        border: 3px solid var(--line);
+        border-radius: 999px;
+        background: var(--yellow);
+        color: var(--ink);
+        font-size: clamp(1.26rem, 2vw, 1.8rem);
+        font-weight: 950;
+        line-height: 1;
+        -webkit-text-stroke: 0.35px currentColor;
+      }
+
+      .why-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .why-grid .card {
+        min-height: 100%;
+        border-width: 3px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 46%),
+          var(--blue);
+      }
+
+      .why-grid .card h3 {
+        text-align: center;
+      }
+
+      .why-grid .card p {
+        color: var(--ink);
+      }
+
+      .why-number {
+        display: grid;
+        width: clamp(58px, 5vw, 74px);
+        height: clamp(58px, 5vw, 74px);
+        margin: 0 auto 18px;
+        place-items: center;
+        border: 3px solid var(--line);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--ink);
+        font-size: clamp(1.18rem, 1.8vw, 1.68rem);
+        font-weight: 950;
+        line-height: 1;
+        -webkit-text-stroke: 0.3px currentColor;
+      }
+
       .conclusion {
         margin: 20px 0 0;
         padding: 24px 28px;
@@ -866,17 +979,21 @@
         font-weight: 700;
       }
 
-      .value-icon {
+      .value-icon,
+      .reason-number {
         display: grid;
-        width: 44px;
-        height: 44px;
-        margin-bottom: 16px;
+        width: clamp(60px, 5.4vw, 78px);
+        height: clamp(60px, 5.4vw, 78px);
+        margin: 0 auto 18px;
         place-items: center;
-        border: 2px solid var(--line);
-        border-radius: 50%;
+        border: 3px solid var(--line);
+        border-radius: 999px;
         background: var(--yellow);
         color: var(--ink);
+        font-size: clamp(1.26rem, 2vw, 1.8rem);
         font-weight: 950;
+        line-height: 1;
+        -webkit-text-stroke: 0.35px currentColor;
       }
 
       .flow {
@@ -927,6 +1044,37 @@
         font-size: 1.6rem;
       }
 
+      .plan-detail {
+        margin: 16px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .plan-detail li {
+        position: relative;
+        padding-left: 18px;
+        color: var(--muted);
+        font-size: 0.92rem;
+        font-weight: 800;
+        line-height: 1.55;
+      }
+
+      .plan-detail li + li {
+        margin-top: 6px;
+      }
+
+      .plan-detail li::before {
+        position: absolute;
+        left: 0;
+        top: 0.72em;
+        width: 8px;
+        height: 8px;
+        content: "";
+        border-radius: 50%;
+        background: var(--yellow);
+        transform: translateY(-50%);
+      }
+
       .price-note {
         margin-top: 14px;
         padding: 28px;
@@ -969,20 +1117,22 @@
         position: relative;
         margin-bottom: 0;
         padding: clamp(56px, 8vw, 88px) 0;
+        text-align: center;
       }
 
       .final-cta h2 {
-        max-width: none;
-        margin: 0;
+        max-width: 1120px;
+        margin: 0 auto;
         color: var(--ink);
         font-size: clamp(2rem, 4.2vw, 3.45rem);
         line-height: 1.15;
-        font-weight: 950;
+        font-weight: 880;
         white-space: nowrap;
       }
 
       .final-cta p {
-        margin: 18px 0 0;
+        max-width: 980px;
+        margin: 18px auto 0;
         color: var(--ink);
         font-weight: 800;
       }
@@ -992,7 +1142,8 @@
         flex-wrap: wrap;
         gap: 14px 24px;
         align-items: center;
-        margin-top: 28px;
+        justify-content: center;
+        margin: 28px auto 0;
         font-weight: 900;
       }
 
@@ -1069,6 +1220,8 @@
 
         .grid-3,
         .grid-4,
+        .diagnosis-grid,
+        .why-grid,
         .plan-grid,
         .voice-grid,
         .flow {
@@ -1111,6 +1264,13 @@
           font-size: clamp(2.55rem, 13vw, 4.4rem);
         }
 
+        .section-head h2,
+        #problem-title {
+          font-weight: 800;
+          -webkit-text-stroke: 0.12px currentColor;
+          text-shadow: none;
+        }
+
         .problem-bubble {
           padding: 1% 1.8%;
           border-width: 1.5px;
@@ -1147,10 +1307,30 @@
         .tabs,
         .grid-3,
         .grid-4,
+        .diagnosis-grid,
+        .why-grid,
         .plan-grid,
         .voice-grid,
         .flow {
           grid-template-columns: 1fr;
+        }
+
+        .diagnosis-number,
+        .value-icon,
+        .reason-number {
+          width: 58px;
+          height: 58px;
+          margin-bottom: 14px;
+          font-size: 1.24rem;
+          -webkit-text-stroke: 0.18px currentColor;
+        }
+
+        .why-number {
+          width: 56px;
+          height: 56px;
+          margin-bottom: 14px;
+          font-size: 1.18rem;
+          -webkit-text-stroke: 0.16px currentColor;
         }
 
         .section-head {
@@ -1192,6 +1372,7 @@
       </a>
       <nav class="desktop-nav" aria-label="主要メニュー">
         <a href="#problem">課題</a>
+        <a href="#diagnosis">診断</a>
         <a href="#service">サービス</a>
         <a href="#value">価値</a>
         <a href="#price">料金</a>
@@ -1208,8 +1389,9 @@
             <img src="assets/nexsk-logo-main.png" alt="Nexsk ネクスク" />
           </figure>
           <h1 id="hero-title">
-            <span>隣の机に、AIが座った。</span>
+            <span>足りない人手は、業務改善で補う。</span>
           </h1>
+          <p class="hero-copy">AIに詳しいディレクターが、現場の隣で業務改善を伴走します。</p>
           <img class="hero-visual" src="assets/illust-hero-current.png" alt="チームで課題に向き合う人たちのイラスト" />
           <svg class="legacy-illust" viewBox="0 0 420 330" role="img" aria-label="業務改善を相談する担当者たち">
             <path class="illust-fill-paper" d="M35 248c38-44 94-57 165-43 70 14 116 3 178-41 25 38 20 84-16 111-48 37-122 37-207 25-72-10-111-27-120-52Z" />
@@ -1231,10 +1413,16 @@
             <path class="illust-thin" d="M235 87h72M244 67h47M317 151c26-4 46 2 61 17M117 79c29 3 50 17 62 42" />
           </svg>
           <div class="hero-grid">
-            <p class="hero-copy">机を並べて一緒に考えるネクスクが、AIで24時間の相棒になる。</p>
+            <ul class="hero-tags" aria-label="主な対象">
+              <li>建築・空間</li>
+              <li>店舗・飲食・宿泊</li>
+              <li>現場とバックオフィス</li>
+            </ul>
             <div class="hero-result">
-              <h2>外注に頼りきりの企画・提案・業務改善を、社内でまわせる会社へ。</h2>
+              <h2>AIで現場の時間を取り戻す。</h2>
+              <p>建築・空間・店舗の企画・提案・業務改善を、社内でまわせる会社へ。</p>
               <p>現場やバックオフィスの業務改善も、1on1で具体化。</p>
+              <p>初回診断で、削減できる業務時間と外注費を可視化。</p>
               <p>AI効率化でコストダウン。</p>
               <p>SNSや集客支援で売上UP。</p>
               <p>人×AIの伴走で、業務改善と内製化を同時に。</p>
@@ -1253,7 +1441,7 @@
             <p class="label">Problem</p>
             <h2 id="problem-title">こんなお悩み、ありませんか？</h2>
           </div>
-          <p>人手が足りない。けれど、すぐに増員できるわけではない。現場の時間が雑務に取られ、本来価値の高い仕事へ向かえない構造を変えます。</p>
+          <p>まずは建築・空間・店舗の現場を中心に。人手が足りない。けれど、すぐに増員できるわけではない。現場の時間が雑務に取られ、本来価値の高い仕事へ向かえない構造を変えます。</p>
         </div>
         <figure class="problem-art" aria-label="社内業務や外注指示に悩む担当者たちのイラスト">
           <img src="assets/illust-problem-current-final.png" alt="" />
@@ -1276,9 +1464,9 @@
         </svg>
 
         <div class="tabs" role="tablist" aria-label="課題カテゴリ">
-          <button class="tab-button" id="tab-architecture" role="tab" aria-selected="true" aria-controls="panel-architecture" type="button">建築・空間系</button>
-          <button class="tab-button" id="tab-smb" role="tab" aria-selected="false" aria-controls="panel-smb" type="button">中小企業</button>
+          <button class="tab-button" id="tab-architecture" role="tab" aria-selected="true" aria-controls="panel-architecture" type="button">建築・空間系（中心）</button>
           <button class="tab-button" id="tab-store" role="tab" aria-selected="false" aria-controls="panel-store" type="button">店舗・飲食・宿泊</button>
+          <button class="tab-button" id="tab-operations" role="tab" aria-selected="false" aria-controls="panel-operations" type="button">現場・バックオフィス</button>
         </div>
 
         <div class="tab-panel is-active" id="panel-architecture" role="tabpanel" aria-labelledby="tab-architecture">
@@ -1291,12 +1479,12 @@
             </ul>
           </div>
         </div>
-        <div class="tab-panel" id="panel-smb" role="tabpanel" aria-labelledby="tab-smb">
+        <div class="tab-panel" id="panel-operations" role="tabpanel" aria-labelledby="tab-operations">
           <div class="list-box">
             <ul>
-              <li>ツールは契約したが、社内に定着しない。</li>
-              <li>何から自動化すべきか分からない。</li>
-              <li>属人化した業務をAIで内製化したい。</li>
+              <li>議事録・報告書・外注指示書の作成に時間が取られている。</li>
+              <li>工程表・見積り・確認事項が担当者の頭の中に残り、属人化している。</li>
+              <li>AIツールはあるが、どの業務に落とし込めばよいか分からない。</li>
             </ul>
           </div>
         </div>
@@ -1312,13 +1500,29 @@
 
         <div class="statement">
           <div>
-            <h3>業務改善で解決する</h3>
+            <h3>足りない人手は、業務改善で補う。</h3>
             <p>現場の雑務をAIで効率化して稼働時間を短縮し、空いた時間を本来価値の高い仕事へ回して稼働率を上げる。これがネクスクAI版の一番の目的です。</p>
           </div>
           <div class="boundary">
             <strong>誠実な線引き</strong>
             <p>AIが代わりに行うのは、CG・模型などの制作そのものではありません。議事録、指示書、工程表、見積り、報告書など、現場を進めるための段取りや文書業務、デザイン提案資料の作成などを効率化します。</p>
           </div>
+        </div>
+      </section>
+
+      <section class="section fade-in" id="diagnosis" aria-labelledby="diagnosis-title">
+        <div class="section-head">
+          <div>
+            <p class="label">First Step</p>
+            <h2 id="diagnosis-title">まず、削減できる時間と費用を見える化。</h2>
+          </div>
+          <p>実績数値を断定するのではなく、御社の業務を一緒に見て、どこからAI化すべきかを初回診断で整理します。</p>
+        </div>
+        <div class="diagnosis-grid">
+          <article class="card"><span class="diagnosis-number">01</span><h3>時間を洗い出す</h3><p>議事録、報告書、外注指示書、見積り、提案資料など、毎月どれだけ時間が取られているかを確認します。</p></article>
+          <article class="card"><span class="diagnosis-number">02</span><h3>外注費を見直す</h3><p>外注すべき制作物と、社内で下準備・指示・たたき台化できる業務を分け、削減余地を見える化します。</p></article>
+          <article class="card"><span class="diagnosis-number">03</span><h3>AI化の優先順位を決める</h3><p>すぐ効く業務、後回しでよい業務、AI化しない方がよい業務を分け、最初に着手すべき改善テーマを明確にします。</p></article>
+          <article class="card"><span class="diagnosis-number">04</span><h3>人が見る範囲を決める</h3><p>AIに任せる作業、人が判断する品質・ブランド・法令面を切り分け、安心して使える運用にします。</p></article>
         </div>
       </section>
 
@@ -1331,18 +1535,26 @@
           <p>外注、コンサル、AIツール。そのどれか一つだけでは、日常業務の中に改善が残りにくいからです。</p>
         </div>
         <img class="section-visual narrow" src="assets/illust-office-current.png" alt="電話や書類対応に追われる担当者のイラスト" />
-        <div class="grid-3">
+        <div class="why-grid">
           <article class="card">
+            <span class="why-number">01</span>
             <h3>外注は単発で終わる</h3>
             <p>成果物は納品されても、考え方や進め方が社内に残りません。</p>
           </article>
           <article class="card">
+            <span class="why-number">02</span>
             <h3>コンサルは手が動きにくい</h3>
             <p>戦略は見えても、現場の文書や段取りまで落ちないことがあります。</p>
           </article>
           <article class="card">
+            <span class="why-number">03</span>
             <h3>AIツールは放置される</h3>
             <p>入れただけでは、誰が何にどう使うかが定まりません。</p>
+          </article>
+          <article class="card">
+            <span class="why-number">04</span>
+            <h3>社内の判断基準が育たない</h3>
+            <p>任せるだけでは、提案や改善の良し悪しを判断する力が社内に残りません。</p>
           </article>
         </div>
         <div class="list-box" style="margin-top: 14px;">
@@ -1475,10 +1687,48 @@
           <p>継続伴走は月定額プランで設計します。<br />課題の範囲と伴走頻度に応じて、最適なプランを個別に設計します。</p>
         </div>
         <div class="plan-grid">
-          <article class="plan"><h3>ライトプラン</h3><p class="price">¥150,000〜</p><p>相談・壁打ちを中心に、AI活用の入口を整えるプラン。</p></article>
-          <article class="plan"><h3>スタンダードプラン</h3><p class="price">¥250,000〜</p><p>議事録、指示書、資料ドラフトなど、実務へ組み込むプラン。</p></article>
-          <article class="plan"><h3>伴走フルプラン</h3><p class="price">¥400,000〜</p><p>業務改善、内製化、人材育成、ブランドへの接続まで深く伴走し、別途項目も内容により範囲設計するプラン。</p></article>
+          <article class="plan">
+            <h3>ライトプラン</h3>
+            <p class="price">¥150,000〜</p>
+            <p>相談・壁打ちを中心に、AI活用の入口を整えるプラン。</p>
+            <ul class="plan-detail">
+              <li>月1回程度の定例MTG</li>
+              <li>初回診断と改善テーマ整理</li>
+              <li>AI活用方針・優先順位の設計</li>
+            </ul>
+          </article>
+          <article class="plan">
+            <h3>スタンダードプラン</h3>
+            <p class="price">¥250,000〜</p>
+            <p>議事録、指示書、資料ドラフトなど、実務へ組み込むプラン。</p>
+            <ul class="plan-detail">
+              <li>月2回程度の定例MTG</li>
+              <li>議事録・報告書・指示書の型づくり</li>
+              <li>提案資料や業務フローの改善支援</li>
+            </ul>
+          </article>
+          <article class="plan">
+            <h3>伴走フルプラン</h3>
+            <p class="price">¥400,000〜</p>
+            <p>業務改善、内製化、人材育成、ブランドへの接続まで深く伴走し、別途項目も内容により範囲設計するプラン。</p>
+            <ul class="plan-detail">
+              <li>月4回程度の定例・1on1伴走</li>
+              <li>社内定着、テンプレート、運用改善支援</li>
+              <li>セミナー・研修は内容により範囲設計</li>
+            </ul>
+          </article>
+          <article class="plan">
+            <h3>セミナー</h3>
+            <p class="price">費用は要相談</p>
+            <p>AI活用や業務改善の考え方を、社内に共有するための単発・社内向けプラン。</p>
+            <ul class="plan-detail">
+              <li>社内向けAI活用セミナー</li>
+              <li>業務改善テーマの共有</li>
+              <li>内容・時間・人数に応じて個別設計</li>
+            </ul>
+          </article>
         </div>
+        <p class="note">月の定例MTGは、基本的にWeb会議で実施します。対面対応が必要な場合は、内容やエリアに応じて個別にご相談ください。</p>
         <div class="price-note">
           <h3>別途費用・要相談となるもの</h3>
           <p class="note">以下は原則として別途費用ですが、内容や作業量によりプラン内に含めて設計できる場合があります。</p>
@@ -1503,10 +1753,11 @@
           <p>机上のAI活用ではなく、現場に接地したデザイン実務から改善を組み立てます。</p>
         </div>
         <img class="section-visual wide" src="assets/illust-handshake-current.png" alt="合意形成と伴走を表す握手のイラスト" />
-        <div class="grid-3">
-          <article class="card"><h3>30年超の実務</h3><p>空間設計・ブランディングの現場で培った判断軸があります。</p></article>
-          <article class="card"><h3>論理×デザイン思考</h3><p>業務の筋道を整理しながら、体験とブランドの質を落としません。</p></article>
-          <article class="card"><h3>現場の接地面まで踏む</h3><p>遵法性と実務の制約まで見据えて伴走します。</p></article>
+        <div class="grid-4 reason-grid">
+          <article class="card"><span class="reason-number">01</span><h3>30年超の実務</h3><p>空間設計・ブランディングの現場で培った判断軸があります。</p></article>
+          <article class="card"><span class="reason-number">02</span><h3>論理×デザイン思考</h3><p>業務の筋道を整理しながら、体験とブランドの質を落としません。</p></article>
+          <article class="card"><span class="reason-number">03</span><h3>現場の接地面まで踏む</h3><p>遵法性と実務の制約まで見据えて伴走します。</p></article>
+          <article class="card"><span class="reason-number">04</span><h3>AI活用を実務に落とし込む</h3><p>ツール紹介で終わらせず、日常業務で使える形に設計します。</p></article>
         </div>
       </section>
 
@@ -1520,8 +1771,10 @@
         </div>
         <div class="faq-list">
           <details><summary>AIに任せてもクウォリティは保たれますか？</summary><p>判断は人が担います。AIは議事録、整理、初稿、定型作業の下支えをし、最終的な品質と世界観は経験あるディレクターが確認します。</p></details>
+          <details><summary>どの業種に一番向いていますか？</summary><p>まずは建築・空間・店舗に関わる企業におすすめしています。提案資料、外注指示、見積り、現場書類、販促・SNSなど、現場とブランドの両方を扱う業務と相性が良いサービスです。上記以外の中小企業も、課題内容に応じて対応可能です。</p></details>
           <details><summary>社内にAIに詳しい人がいなくても大丈夫ですか？</summary><p>大丈夫です。使い方の設計、テンプレート化、社員が使える状態への育成まで含めて伴走します。ご希望に応じて、社内向けセミナーの開催もいたします。</p></details>
           <details><summary>契約期間・解約について教えてください。</summary><p>AI活用の定着と業務改善の効果検証には一定の運用期間が必要なため、基本の最低契約期間は6か月を目安としています。伴走範囲や運用体制に応じて、無料相談時に前提を確認します。</p></details>
+          <details><summary>テンプレート作成や社員研修はプラン内ですか？</summary><p>簡易なテンプレート化や使い方の整理は、スタンダード以上の伴走範囲に含めて設計できます。本格的なマニュアル化、研修設計、複数部署への展開、システム構築を伴うものは、内容と作業量により別途費用・要相談です。</p></details>
           <details><summary>制作物はどこまで込みですか？</summary><p>制作物として図面・CG・模型・ロゴ・HP等、成果物として別納品になるものは原則として別途費用です。個別のGPTs / AI Agent等の構築、見積積算システム、Webアプリ・業務システム、データベース接続やAPI連携実装、研修、マニュアル化なども、内容や作業量によりプラン内に含められる場合があります。無料相談時に範囲を確認します。</p></details>
           <details><summary>対応エリアやオンライン対応は可能ですか？</summary><p>対応エリア・オンライン可否は要相談です。業務内容や打合せ頻度に合わせて進め方を設計します。</p></details>
         </div>
