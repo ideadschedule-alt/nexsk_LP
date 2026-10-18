@@ -7,10 +7,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ネクスク AI版 | 足りない人手は、業務改善で補う。</title>
+    <title>ネクスク AI版 β2.0 | 足りない人手は業務改善で補う</title>
     <meta
       name="description"
-      content="経験あるディレクターと24時間動くAIが、隣の机に並び、業務改善と内製化を伴走するネクスク AI版のランディングページ。"
+      content="建築実務を知るディレクターが、既存業務にAIを組み込み、作業時間・属人化・管理負担を減らすネクスク AI版のランディングページ。"
     />
     <style>
       :root {
@@ -104,7 +104,7 @@
       .brand-mark {
         display: block;
         width: 138px;
-        aspect-ratio: 848 / 246;
+        aspect-ratio: 2170 / 725;
         overflow: hidden;
       }
 
@@ -194,6 +194,7 @@
         column-gap: clamp(24px, 6vw, 72px);
         row-gap: 20px;
         align-items: center;
+        transform: translateY(-30px);
       }
 
       .label {
@@ -212,19 +213,26 @@
         grid-column: 1;
       }
 
+      .hero .label {
+        grid-row: 1;
+      }
+
       .hero-logo {
-        grid-column: 1 / -1;
+        grid-column: 1;
+        grid-row: 2;
+        width: min(560px, calc(100vw - 72px));
         margin: 0 0 6px;
       }
 
       .hero-logo img {
-        width: min(720px, 100%);
+        width: 100%;
         height: auto;
       }
 
       .hero h1 {
+        grid-row: 3;
         max-width: none;
-        margin: 0;
+        margin: 64px 0 0;
         color: var(--ink);
         font-size: clamp(2rem, 4.4vw, 3.8rem);
         line-height: 1.05;
@@ -243,14 +251,17 @@
 
       .hero-copy {
         grid-column: 1;
+        grid-row: 4;
         margin: 16px 0 0;
         color: var(--ink);
         font-size: clamp(0.95rem, 1.34vw, 1.12rem);
         font-weight: 900;
-        white-space: nowrap;
+        white-space: normal;
       }
 
       .hero-tags {
+        grid-column: 1;
+        grid-row: 5;
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
@@ -270,7 +281,8 @@
       }
 
       .hero-result {
-        grid-column: 1;
+        grid-column: 1 / -1;
+        grid-row: 6;
         margin-top: 20px;
         padding: 0;
         border: 0;
@@ -289,7 +301,7 @@
       .hero-result p {
         margin: 10px 0 0;
         color: var(--ink);
-        font-size: clamp(1.24rem, 2vw, 1.72rem);
+        font-size: clamp(1.18rem, 1.7vw, 1.3rem);
         line-height: 1.35;
         font-weight: 950;
         white-space: nowrap;
@@ -301,6 +313,10 @@
         flex-wrap: wrap;
         gap: 12px;
         margin-top: 20px;
+      }
+
+      .hero .hero-actions {
+        transform: translateY(48px);
       }
 
       .hero-illust,
@@ -316,9 +332,10 @@
       .hero-visual {
         grid-column: 2;
         grid-row: 1 / span 6;
-        width: min(100%, 430px);
+        width: min(100%, 520px);
         justify-self: center;
-        align-self: end;
+        align-self: center;
+        transform: translateY(-290px);
       }
 
       .section-visual {
@@ -333,6 +350,15 @@
 
       .section-visual.wide {
         width: min(760px, 100%);
+      }
+
+      #value .section-visual {
+        width: min(560px, 78%);
+      }
+
+      #reason .section-visual {
+        margin-top: -28px;
+        margin-bottom: 12px;
       }
 
       .problem-art {
@@ -356,7 +382,7 @@
         border: 0;
         background: transparent;
         color: var(--ink);
-        font-size: clamp(0.72rem, 1.28vw, 1.03rem);
+        font-size: clamp(0.82rem, 1.55vw, 1.22rem);
         font-weight: 950;
         line-height: 1.28;
         text-align: center;
@@ -383,9 +409,12 @@
       }
 
       .problem-bubble.grow {
-        left: 30%;
-        top: 1.5%;
-        width: 31%;
+        left: 29.7%;
+        top: 0;
+        width: 27.2%;
+        height: 14.8%;
+        font-size: clamp(0.78rem, 1.42vw, 1.08rem);
+        white-space: nowrap;
       }
 
       .problem-bubble.grow::before {
@@ -400,8 +429,9 @@
 
       .problem-bubble.branding {
         right: 0;
-        top: 7%;
-        width: 29%;
+        top: 4.8%;
+        width: 28%;
+        height: 15.7%;
       }
 
       .problem-bubble.branding::before {
@@ -422,8 +452,9 @@
 
       .problem-bubble.designer {
         left: 8%;
-        top: 18%;
-        width: 31%;
+        top: 15.5%;
+        width: 30.6%;
+        height: 16.9%;
       }
 
       .problem-bubble.designer::before {
@@ -438,8 +469,11 @@
 
       .problem-bubble.inhouse {
         left: 0;
-        top: 45%;
-        width: 36%;
+        top: 43%;
+        width: 30.6%;
+        height: 16.9%;
+        font-size: clamp(0.76rem, 1.36vw, 1rem);
+        white-space: nowrap;
       }
 
       .problem-bubble.inhouse::before {
@@ -453,9 +487,15 @@
       }
 
       .problem-bubble.outsource {
-        right: 9%;
-        top: 54%;
-        width: 26%;
+        right: 8.2%;
+        top: 51.6%;
+        width: 25.8%;
+        height: 14.1%;
+      }
+
+      .problem-bubble.outsource .bubble-line {
+        display: block;
+        white-space: nowrap;
       }
 
       .problem-bubble.outsource::before {
@@ -565,6 +605,11 @@
           0 0.35px 0 currentColor;
       }
 
+      #why-title {
+        font-size: clamp(1.65rem, 3vw, 2.35rem);
+        white-space: nowrap;
+      }
+
       .section-head p:not(.label) {
         margin: 14px 0 0;
         color: var(--muted);
@@ -575,6 +620,15 @@
         max-width: 1040px;
       }
 
+      #diagnosis .section-head {
+        max-width: 1180px;
+      }
+
+      #diagnosis .section-head > p:not(.label) {
+        font-size: clamp(0.86rem, 1.2vw, 1rem);
+        white-space: nowrap;
+      }
+
       #service .section-head p:not(.label) {
         color: var(--ink);
         font-size: clamp(1.12rem, 1.8vw, 1.45rem);
@@ -582,41 +636,9 @@
         font-weight: 950;
       }
 
-      .tabs {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
-        margin: 0 auto 16px;
-      }
-
-      .tab-button {
-        min-height: 46px;
-        padding: 8px 12px;
-        border: 2px solid var(--line);
-        border-radius: 999px;
-        color: var(--ink);
-        background: #fff;
-        cursor: pointer;
-        font-weight: 900;
-      }
-
-      .tab-button[aria-selected="true"] {
-        background: var(--yellow);
-        box-shadow: 3px 3px 0 var(--line);
-      }
-
-      .tab-panel {
-        display: none;
-      }
-
-      .tab-panel.is-active {
-        display: block;
-      }
-
       .card,
       .list-box,
       .statement,
-      .layer,
       .plan,
       .placeholder,
       details,
@@ -680,11 +702,11 @@
 
       .statement > div:first-child {
         max-width: 1080px;
+        margin-inline: auto;
       }
 
       .statement h3,
       .card h3,
-      .layer h3,
       .plan h3,
       .placeholder h3 {
         margin: 0;
@@ -698,12 +720,12 @@
       .statement h3 {
         font-size: clamp(2rem, 4.2vw, 3.2rem);
         line-height: 1.12;
+        text-align: center;
         -webkit-text-stroke: 0.65px currentColor;
       }
 
       .statement p,
       .card p,
-      .layer p,
       .plan p,
       .placeholder p {
         margin: 10px 0 0;
@@ -769,16 +791,16 @@
         grid-template-columns: repeat(4, minmax(0, 1fr));
       }
 
-      .solution-grid .card h3 {
-        text-align: center;
-      }
-
       .value-grid .card h3 {
+        font-size: clamp(1rem, 1.45vw, 1.24rem);
         text-align: center;
+        white-space: nowrap;
       }
 
       .reason-grid .card h3 {
+        font-size: clamp(1rem, 1.45vw, 1.24rem);
         text-align: center;
+        white-space: nowrap;
       }
 
       .value-grid .card {
@@ -827,7 +849,7 @@
 
       .why-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 14px;
       }
 
@@ -843,6 +865,11 @@
         color: #fff;
         text-align: center;
         -webkit-text-stroke: 0.25px currentColor;
+      }
+
+      .why-grid .card:nth-child(2) h3 {
+        font-size: clamp(1rem, 1.55vw, 1.3rem);
+        white-space: nowrap;
       }
 
       .why-grid .card p {
@@ -867,29 +894,41 @@
 
       .conclusion {
         margin: 20px 0 0;
-        padding: 24px 28px;
-        border-left: 10px solid var(--yellow);
+        padding: 24px 28px 24px 38px;
+        border: 2px solid var(--ink);
         background: #fff;
-        font-size: clamp(1.08rem, 2vw, 1.36rem);
+        box-shadow: inset 10px 0 0 var(--yellow), 5px 5px 0 rgba(0, 0, 0, 0.12);
+        font-size: clamp(1.18rem, 2.2vw, 1.62rem);
         font-weight: 950;
         line-height: 1.55;
       }
 
+      .conclusion .marker {
+        background: linear-gradient(transparent 58%, rgba(255, 216, 77, 0.9) 58%);
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+      }
+
       .definition {
-        display: grid;
-        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-        gap: clamp(24px, 4vw, 42px);
+        max-width: 1080px;
+        margin-inline: auto;
+        padding: clamp(30px, 5vw, 56px);
+        border: 2px solid var(--line);
+        border-radius: var(--radius);
+        background: #fffaf0;
+        box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.12);
       }
 
       .definition > div:first-child {
-        padding: 24px;
-        border-top: 5px solid var(--line);
-        background: rgba(255, 255, 255, 0.7);
+        max-width: 960px;
+        margin-inline: auto;
       }
 
       .concept-title {
         display: grid;
-        gap: 4px;
+        gap: 10px;
+        margin: 0 0 clamp(24px, 4vw, 36px);
+        text-align: center;
       }
 
       .concept-title .en {
@@ -907,28 +946,32 @@
         font-weight: 950;
       }
 
-      .layer-stack {
-        display: grid;
-        gap: 12px;
+      .diagnosis-actions {
+        justify-content: center;
+        margin-top: 28px;
       }
 
-      .layer {
+      .definition-copy {
         display: grid;
-        grid-template-columns: 58px 1fr;
-        gap: 16px;
-        padding: 18px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0;
       }
 
-      .layer-number {
-        display: grid;
-        width: 46px;
-        height: 46px;
-        place-items: center;
-        border: 2px solid var(--line);
-        border-radius: 50%;
-        background: var(--yellow);
+      .definition-copy p {
+        margin: 0;
         color: var(--ink);
-        font-weight: 950;
+        font-size: clamp(1rem, 1.55vw, 1.22rem);
+        line-height: 1.8;
+        font-weight: 800;
+      }
+
+      .definition-copy p:first-child {
+        padding-right: clamp(11px, 2vw, 21px);
+      }
+
+      .definition-copy p + p {
+        padding-left: clamp(11px, 2vw, 21px);
+        border-left: 1px solid rgba(31, 31, 31, 0.35);
       }
 
       .table-wrap {
@@ -1015,10 +1058,11 @@
       }
 
       .flow-step span {
-        display: inline-grid;
+        display: grid;
         min-width: 60px;
+        width: fit-content;
         min-height: 34px;
-        margin-bottom: 24px;
+        margin: 0 auto 24px;
         place-items: center;
         border-radius: 999px;
         background: var(--yellow);
@@ -1083,6 +1127,12 @@
 
       .seminar-plan .seminar-head h3 {
         font-size: clamp(1.5rem, 2.6vw, 2rem);
+      }
+
+      .seminar-plan .seminar-head .price {
+        margin: 4px 0 0;
+        font-size: clamp(1.08rem, 1.8vw, 1.32rem);
+        line-height: 1.2;
       }
 
       .seminar-plan .seminar-body {
@@ -1207,7 +1257,284 @@
         transform: translateY(0);
       }
 
+      /* β2.0 motion system */
+      .scroll-progress {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 100;
+        height: 4px;
+        pointer-events: none;
+      }
+
+      .scroll-progress span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: var(--blue);
+        transform: scaleX(0);
+        transform-origin: left center;
+        will-change: transform;
+      }
+
+      .beta-badge {
+        display: inline-flex;
+        align-items: center;
+        min-height: 24px;
+        margin-left: 10px;
+        padding: 2px 9px;
+        border: 2px solid var(--line);
+        border-radius: 999px;
+        background: #fff;
+        font-size: 0.68rem;
+        font-weight: 950;
+        vertical-align: middle;
+        box-shadow: 2px 2px 0 var(--line);
+      }
+
+      .hero::before {
+        position: absolute;
+        inset: -35% -15%;
+        content: "";
+        pointer-events: none;
+        background: linear-gradient(112deg, transparent 35%, rgba(255, 255, 255, 0.28) 48%, transparent 61%);
+        transform: translateX(-45%);
+        animation: hero-sweep 8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+      }
+
+      .hero h1 .kinetic-line {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 0.22em;
+        align-items: baseline;
+      }
+
+      .hero h1 .kinetic-word {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(0.9em) rotate(1deg);
+        animation: word-rise 0.82s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .kinetic-word:nth-child(2) {
+        animation-delay: 0.14s;
+      }
+
+      .kinetic-word:nth-child(3) {
+        animation-delay: 0.28s;
+      }
+
+      .kinetic-word.accent-word {
+        position: relative;
+        z-index: 0;
+      }
+
+      .kinetic-word.accent-word::after {
+        position: absolute;
+        right: -0.04em;
+        bottom: 0.03em;
+        left: -0.04em;
+        z-index: -1;
+        height: 0.25em;
+        content: "";
+        background: #fff;
+        transform: scaleX(0);
+        transform-origin: left;
+        animation: underline-draw 0.75s 0.72s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .hero-logo,
+      .hero-copy,
+      .hero-tags,
+      .hero-result {
+        opacity: 0;
+        animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .hero-logo { animation-delay: 0.08s; }
+      .hero-copy { animation-delay: 0.42s; }
+      .hero-tags { animation-delay: 0.56s; }
+      .hero-result { animation-delay: 0.68s; }
+
+      .hero-visual {
+        opacity: 0;
+        animation: hero-visual-enter 0.9s 0.48s ease forwards;
+      }
+
+      .motion-ready .motion-item {
+        opacity: 0;
+        transform: translateY(28px) scale(0.985);
+        transition:
+          opacity 0.62s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
+        transition-delay: var(--motion-delay, 0ms);
+        will-change: opacity, transform;
+      }
+
+      .motion-ready .motion-item.motion-from-left {
+        transform: translateX(-34px);
+      }
+
+      .motion-ready .motion-item.motion-from-right {
+        transform: translateX(34px);
+      }
+
+      .motion-ready .motion-item.is-visible {
+        opacity: 1;
+        transform: translate(0) scale(1);
+      }
+
+      .motion-ready .problem-bubble.motion-item {
+        transform: translateY(14px) scale(0.86);
+      }
+
+      .motion-ready .problem-bubble.motion-item.is-visible {
+        transform: translateY(0) scale(1);
+      }
+
+      .card,
+      .plan,
+      .flow-step,
+      details,
+      .button {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::after,
+      .plan::after,
+      .flow-step::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        pointer-events: none;
+        background: linear-gradient(110deg, transparent 22%, rgba(248, 210, 74, 0.28) 50%, transparent 78%);
+        transform: translateX(-120%);
+        transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .card:hover::after,
+      .plan:hover::after,
+      .flow-step:hover::after {
+        transform: translateX(120%);
+      }
+
+      .card,
+      .plan,
+      .flow-step {
+        transition: transform 0.24s ease, box-shadow 0.24s ease;
+      }
+
+      .card:hover,
+      .plan:hover,
+      .flow-step:hover {
+        transform: translateY(-5px);
+        box-shadow: 7px 7px 0 rgba(24, 168, 199, 0.22);
+      }
+
+      .flow {
+        position: relative;
+        z-index: 0;
+      }
+
+      .flow::before {
+        position: absolute;
+        top: 40px;
+        right: 6%;
+        left: 6%;
+        z-index: 0;
+        height: 4px;
+        content: "";
+        background: var(--blue);
+        transform: scaleX(var(--flow-progress, 0));
+        transform-origin: left center;
+        transition: transform 1.3s 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .flow.is-visible::before {
+        --flow-progress: 1;
+      }
+
+      .flow-step span,
+      .value-icon,
+      .reason-number,
+      .diagnosis-number,
+      .why-number {
+        transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+
+      .flow-step:hover span,
+      .card:hover .value-icon,
+      .card:hover .reason-number,
+      .card:hover .diagnosis-number,
+      .card:hover .why-number {
+        transform: rotate(-5deg) scale(1.08);
+        background: #fff;
+      }
+
+      .flow-step {
+        z-index: 1;
+      }
+
+      .motion-ready tbody tr.motion-item.is-visible td {
+        animation: cell-highlight 0.85s var(--motion-delay, 0ms) ease both;
+      }
+
+      details[open] p {
+        animation: faq-open 0.36s ease both;
+      }
+
+      .button::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        pointer-events: none;
+        background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.34) 50%, transparent 70%);
+        transform: translateX(-130%);
+        transition: transform 0.55s ease;
+      }
+
+      .button:hover::after {
+        transform: translateX(130%);
+      }
+
+      @keyframes word-rise {
+        to { opacity: 1; transform: translateY(0) rotate(0); }
+      }
+
+      @keyframes underline-draw {
+        to { transform: scaleX(1); }
+      }
+
+      @keyframes hero-enter {
+        from { opacity: 0; transform: translateY(24px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes hero-visual-enter {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes hero-sweep {
+        0%, 18% { transform: translateX(-45%); }
+        50%, 100% { transform: translateX(45%); }
+      }
+
+      @keyframes cell-highlight {
+        0% { background-color: rgba(248, 210, 74, 0.32); }
+        100% { background-color: transparent; }
+      }
+
+      @keyframes faq-open {
+        from { opacity: 0; transform: translateY(-8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
       @media (max-width: 920px) {
+        #diagnosis .section-head > p:not(.label) {
+          white-space: normal;
+        }
+
         .site-header {
           grid-template-columns: auto auto;
         }
@@ -1218,8 +1545,19 @@
 
         .hero-inner,
         .statement,
-        .definition {
+        .definition-copy {
           grid-template-columns: 1fr;
+        }
+
+        .definition-copy p:first-child,
+        .definition-copy p + p {
+          padding-right: 0;
+          padding-left: 0;
+          border-left: 0;
+        }
+
+        .hero-inner {
+          transform: none;
         }
 
         .boundary {
@@ -1237,9 +1575,22 @@
 
         .hero-visual {
           grid-column: 1;
-          grid-row: auto;
+          grid-row: 4;
           width: min(420px, 100%);
           margin: 10px auto 0;
+          transform: none;
+        }
+
+        .hero-copy {
+          grid-row: 5;
+        }
+
+        .hero-tags {
+          grid-row: 6;
+        }
+
+        .hero-result {
+          grid-row: 7;
         }
 
         .grid-3,
@@ -1255,6 +1606,14 @@
         .seminar-plan,
         .seminar-plan .seminar-body {
           grid-template-columns: 1fr;
+        }
+
+        .hero h1 .kinetic-line {
+          flex-wrap: wrap;
+        }
+
+        .flow::before {
+          display: none;
         }
       }
 
@@ -1289,8 +1648,22 @@
           width: min(100%, 520px);
         }
 
+        #value .section-visual {
+          width: min(420px, 88%);
+        }
+
+        #reason .section-visual {
+          margin-top: -12px;
+          margin-bottom: 16px;
+        }
+
         .hero h1 {
-          font-size: clamp(2.55rem, 13vw, 4.4rem);
+          margin-top: 0;
+          font-size: clamp(2.25rem, 10.5vw, 3.4rem);
+        }
+
+        .hero h1 .kinetic-word {
+          white-space: nowrap;
         }
 
         .section-head h2,
@@ -1300,6 +1673,10 @@
           text-shadow: none;
         }
 
+        #why-title {
+          white-space: normal;
+        }
+
         .problem-bubble {
           padding: 1% 1.8%;
           border-width: 1.5px;
@@ -1307,6 +1684,14 @@
           font-size: clamp(0.5rem, 2.4vw, 0.72rem);
           line-height: 1.22;
           -webkit-text-stroke: 0.1px currentColor;
+        }
+
+        .problem-bubble.grow {
+          font-size: clamp(0.46rem, 2.1vw, 0.66rem);
+        }
+
+        .problem-bubble.inhouse {
+          font-size: clamp(0.44rem, 2vw, 0.62rem);
         }
 
         .problem-bubble::before {
@@ -1333,7 +1718,6 @@
           border-width: 6px 15px 6px 0;
         }
 
-        .tabs,
         .grid-3,
         .grid-4,
         .diagnosis-grid,
@@ -1386,13 +1770,34 @@
           display: block;
         }
       }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+        .motion-ready .motion-item,
+        .hero-logo,
+        .hero-copy,
+        .hero-visual,
+        .hero-tags,
+        .hero-result,
+        .kinetic-word {
+          opacity: 1;
+          transform: none;
+        }
+      }
     </style>
   </head>
   <body>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="ネクスク AI版 トップへ">
         <span class="brand-mark">
-          <img src="assets/nexsk-logo-main.png" alt="Nexsk ネクスク" />
+          <img src="assets/nexsk-logo-transparent.png?v=20261015" alt="Nexsk ネクスク" />
         </span>
         <span>
           ネクスク AI版
@@ -1401,27 +1806,28 @@
       </a>
       <nav class="desktop-nav" aria-label="主要メニュー">
         <a href="#problem">課題</a>
-        <a href="#diagnosis">診断</a>
+        <a href="#why">原因</a>
+        <a href="#diagnosis">無料診断</a>
         <a href="#service">サービス</a>
         <a href="#value">価値</a>
         <a href="#price">料金</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a class="button" href="mailto:info@idea-d.jp?subject=ネクスクAI版の無料相談">無料相談</a>
+      <a class="button" href="mailto:info@idea-d.jp?subject=30分の無料業務診断の予約">無料業務診断</a>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-inner">
-          <p class="label">Next Desk with AI</p>
+          <p class="label">Next Desk with AI <span class="beta-badge">β2.0</span></p>
           <figure class="hero-logo">
-            <img src="assets/nexsk-logo-main.png" alt="Nexsk ネクスク" />
+            <img src="assets/nexsk-logo-transparent.png?v=20261015" alt="Nexsk ネクスク" />
           </figure>
           <h1 id="hero-title">
-            <span>足りない人手は、業務改善で補う。</span>
+            <span class="kinetic-line"><span class="kinetic-word">足りない人手は</span><span class="kinetic-word accent-word">業務改善で</span><span class="kinetic-word">補う</span></span>
           </h1>
-          <p class="hero-copy">AIに詳しいディレクターが、現場の隣で業務改善を伴走します。</p>
-          <img class="hero-visual" src="assets/illust-hero-current.png" alt="チームで課題に向き合う人たちのイラスト" />
+          <p class="hero-copy">建築実務を知るディレクターが、既存業務にAIを組み込み、作業時間・属人化・管理負担を減らします。</p>
+          <img class="hero-visual" src="assets/illust-hero-construction-team.png" alt="建設現場を指差して確認する4人のチームのイラスト" />
           <svg class="legacy-illust" viewBox="0 0 420 330" role="img" aria-label="業務改善を相談する担当者たち">
             <path class="illust-fill-paper" d="M35 248c38-44 94-57 165-43 70 14 116 3 178-41 25 38 20 84-16 111-48 37-122 37-207 25-72-10-111-27-120-52Z" />
             <path class="illust-line" d="M53 255c52-20 105-23 169-10 47 10 91 6 137-15" />
@@ -1443,21 +1849,18 @@
           </svg>
           <div class="hero-grid">
             <ul class="hero-tags" aria-label="主な対象">
-              <li>建築・空間</li>
-              <li>店舗・飲食・宿泊</li>
-              <li>現場とバックオフィス</li>
+              <li>建築設計事務所</li>
+              <li>工務店・建設会社</li>
+              <li>建築関連事業者</li>
             </ul>
             <div class="hero-result">
-              <h2>AIで現場の時間を取り戻す。</h2>
-              <p>建築・空間・店舗の企画・提案・業務改善を、社内でまわせる会社へ。</p>
-              <p>現場やバックオフィスの業務改善も、1on1で具体化。</p>
-              <p>初回診断で、削減できる業務時間と外注費を可視化。</p>
-              <p>AI効率化でコストダウン。</p>
-              <p>SNSや集客支援で売上UP。</p>
-              <p>人×AIの伴走で、業務改善と内製化を同時に。</p>
+              <p>議事録・報告書・外注指示書・工程表・見積りなどの定型業務を整理</p>
+              <p>今の業務フローを大きく変えず、AIを使える形に設計</p>
+              <p>作業時間・属人化・管理負担を減らし、本来の業務へ時間を戻します</p>
+              <p>高額なシステム開発やSaaS導入ではなく、貴社に合ったAIの活用を1on1でサポートします</p>
               <div class="hero-actions">
-                <a class="button" href="mailto:info@idea-d.jp?subject=ネクスクAI版の無料相談">無料で相談する</a>
-                <a class="button ghost" href="#service">サービスを見る</a>
+                <a class="button" href="mailto:info@idea-d.jp?subject=30分の無料業務診断の予約">30分の無料業務診断を予約する</a>
+                <a class="button ghost" href="#diagnosis">診断内容を見る</a>
               </div>
             </div>
           </div>
@@ -1468,13 +1871,18 @@
         <div class="section-head">
           <div>
             <p class="label">Problem</p>
-            <h2 id="problem-title">こんなお悩み、ありませんか？</h2>
+            <h2 id="problem-title">こんなお悩みありませんか</h2>
           </div>
-          <p>まずは建築・空間・店舗の現場を中心に。人手が足りない。けれど、すぐに増員できるわけではない。現場の時間が雑務に取られ、本来価値の高い仕事へ向かえない構造を変えます。</p>
+          <p>現場後の書類作成や段取りに時間を取られ、設計・提案・現場判断に集中できない構造を変えます。</p>
         </div>
         <figure class="problem-art" aria-label="社内業務や外注指示に悩む担当者たちのイラスト">
-          <img src="assets/illust-problem-current-final.png" alt="" />
-          <figcaption class="sr-only">人材不足で社員育成まで手が回らない。AIコンサル+デザイナーの費用までちょっと。現場の議事録や書類作成に追われて業務がはかどらない。AIのデザインが良いのか判断できるデザイナーがいない。外注先への指示書を作成する時間がない。</figcaption>
+          <img src="assets/illust-problem-textless.png" alt="" />
+          <p class="problem-bubble grow" aria-hidden="true">人材不足で社員育成まで<br />手が回らない</p>
+          <p class="problem-bubble branding" aria-hidden="true">工程表や見積りが<br />担当者に属人化している</p>
+          <p class="problem-bubble designer" aria-hidden="true">高額なシステムを入れず<br />今の業務を改善したい</p>
+          <p class="problem-bubble inhouse" aria-hidden="true">現場の議事録や書類作成に<br />追われて業務がはかどらない</p>
+          <p class="problem-bubble outsource" aria-hidden="true"><span><span class="bubble-line">AIをどう活用すれば</span><span class="bubble-line">いいかわからない</span></span></p>
+          <figcaption class="sr-only">人材不足で社員育成まで手が回らない。高額なシステムを入れず今の業務を改善したい。現場の議事録や書類作成に追われて業務がはかどらない。工程表や見積りが担当者に属人化している。AIをどう活用すればいいかわからない。</figcaption>
         </figure>
         <svg class="legacy-illust" viewBox="0 0 640 260" role="img" aria-label="悩みを抱える担当者たち">
           <path fill="rgba(0,0,0,0.05)" d="M18 230 170 26l452 182-604 22Z" />
@@ -1492,66 +1900,20 @@
           <path class="illust-line" d="M360 181c27-7 51 1 70 20l-20 34-58-13 8-41Z" />
         </svg>
 
-        <div class="tabs" role="tablist" aria-label="課題カテゴリ">
-          <button class="tab-button" id="tab-architecture" role="tab" aria-selected="true" aria-controls="panel-architecture" type="button">建築・空間系（中心）</button>
-          <button class="tab-button" id="tab-store" role="tab" aria-selected="false" aria-controls="panel-store" type="button">店舗・飲食・宿泊</button>
-          <button class="tab-button" id="tab-operations" role="tab" aria-selected="false" aria-controls="panel-operations" type="button">現場・バックオフィス</button>
+        <div class="list-box">
+          <ul>
+            <li>過去資料や案件情報が分散し、必要な情報を探すのに時間がかかる。</li>
+            <li>既存の業務フローを大きく変えずにAIを活用したい。</li>
+            <li>管理や段取りに追われ、設計・提案・現場判断に時間を使えない。</li>
+            <li>業務改善の手順やテンプレートが共有されず、社内に定着しない。</li>
+            <li>未公開図面や顧客情報を扱うため、AIへ入力する情報の範囲に不安がある。</li>
+          </ul>
         </div>
-
-        <div class="tab-panel is-active" id="panel-architecture" role="tabpanel" aria-labelledby="tab-architecture">
-          <div class="list-box">
-            <ul>
-              <li>企画提案や資料作成にAIを活用したいが、業務への落とし込み方が分からない。</li>
-              <li>自社ブランディングを崩さず、AIを活用した業務改善を進めたい。</li>
-              <li>AIでデザイン案を考えてみたが、そもそも良し悪しの判断ができない。</li>
-              <li>議事録・報告書・外注指示書・工程表・見積り・バックオフィス業務などをAIで効率化し、本来の仕事へ時間を戻したい。</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tab-panel" id="panel-operations" role="tabpanel" aria-labelledby="tab-operations">
-          <div class="list-box">
-            <ul>
-              <li>議事録・報告書・外注指示書の作成に時間が取られている。</li>
-              <li>工程表・見積り・確認事項が担当者の頭の中に残り、属人化している。</li>
-              <li>AIツールはあるが、どの業務に落とし込めばよいか分からない。</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tab-panel" id="panel-store" role="tabpanel" aria-labelledby="tab-store">
-          <div class="list-box">
-            <ul>
-              <li>販促・SNS・メニュー・接客ツールを作る手が足りない。</li>
-              <li>新業態や多店舗展開のディレクションを継続的に相談したい。</li>
-              <li>現場運営とブランドづくりをつなぐ人材が不足している。</li>
-            </ul>
-          </div>
-        </div>
-
         <div class="statement">
           <div>
-            <h3>足りない人手は、業務改善で補う。</h3>
-            <p>現場の雑務をAIで効率化して稼働時間を短縮し、空いた時間を本来価値の高い仕事へ回して稼働率を上げる。これがネクスクAI版の一番の目的です。</p>
+            <h3>足りない人手は業務改善で補う</h3>
+            <p>書類や段取りの手間を減らし、属人化を抑え、人が本来の仕事に集中できる環境をつくる。そのために、貴社に合ったAIの活用を1on1でサポートします。これがネクスクAI版の目的です。</p>
           </div>
-          <div class="boundary">
-            <strong>誠実な線引き</strong>
-            <p>AIが代わりに行うのは、CG・模型などの制作そのものではありません。議事録、指示書、工程表、見積り、報告書など、現場を進めるための段取りや文書業務、デザイン提案資料の作成などを効率化します。</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section fade-in" id="diagnosis" aria-labelledby="diagnosis-title">
-        <div class="section-head">
-          <div>
-            <p class="label">First Step</p>
-            <h2 id="diagnosis-title">まず、削減できる時間と費用を見える化。</h2>
-          </div>
-          <p>実績数値を断定するのではなく、御社の業務を一緒に見て、どこからAI化すべきかを初回診断で整理します。</p>
-        </div>
-        <div class="diagnosis-grid">
-          <article class="card"><span class="diagnosis-number">01</span><h3>時間を洗い出す</h3><p>議事録、報告書、外注指示書、見積り、提案資料など、毎月どれだけ時間が取られているかを確認します。</p></article>
-          <article class="card"><span class="diagnosis-number">02</span><h3>外注費を見直す</h3><p>外注すべき制作物と、社内で下準備・指示・たたき台化できる業務を分け、削減余地を見える化します。</p></article>
-          <article class="card"><span class="diagnosis-number">03</span><h3>AI化の優先順位を決める</h3><p>すぐ効く業務、後回しでよい業務、AI化しない方がよい業務を分け、最初に着手すべき改善テーマを明確にします。</p></article>
-          <article class="card"><span class="diagnosis-number">04</span><h3>人が見る範囲を決める</h3><p>AIに任せる作業、人が判断する品質・ブランド・法令面を切り分け、安心して使える運用にします。</p></article>
         </div>
       </section>
 
@@ -1559,89 +1921,67 @@
         <div class="section-head">
           <div>
             <p class="label">Why Now</p>
-            <h2 id="why-title">なぜ、今までのやり方では解決しないのか。</h2>
+            <h2 id="why-title">なぜ今までのやり方では解決しなかったのか</h2>
           </div>
-          <p>外注、コンサル、AIツール。そのどれか一つだけでは、日常業務の中に改善が残りにくいからです。</p>
+          <p>システム構築したが業務改善されない。外注では人材が育たない。<br />逆に今までなかった業務が増える一方、そんな悪循環続いていませんか？</p>
         </div>
         <img class="section-visual narrow" src="assets/illust-office-current.png" alt="電話や書類対応に追われる担当者のイラスト" />
         <div class="why-grid">
           <article class="card">
             <span class="why-number">01</span>
-            <h3>外注は単発で終わる</h3>
-            <p>成果物は納品されても、考え方や進め方が社内に残りません。</p>
+            <h3>外注は所詮外部</h3>
+            <p>成果物や戦略は受け取れても、日常の判断・文書・段取りは社内に残りにくいことがあります。</p>
           </article>
           <article class="card">
             <span class="why-number">02</span>
-            <h3>コンサルは手が動きにくい</h3>
-            <p>戦略は見えても、現場の文書や段取りまで落ちないことがあります。</p>
+            <h3>活用されていないソフト</h3>
+            <p>入れたはいいが、誰が何にどう使うかが定まらず、毎月支払いだけをしている。</p>
           </article>
           <article class="card">
             <span class="why-number">03</span>
-            <h3>AIツールは放置される</h3>
-            <p>入れただけでは、誰が何にどう使うかが定まりません。</p>
-          </article>
-          <article class="card">
-            <span class="why-number">04</span>
             <h3>社内の判断基準が育たない</h3>
             <p>任せるだけでは、提案や改善の良し悪しを判断する力が社内に残りません。</p>
           </article>
         </div>
-        <div class="list-box" style="margin-top: 14px;">
-          <ul>
-            <li>議事録の後回しで「言った言わない」の手戻りが起きる。</li>
-            <li>外注指示書作成に半日とられ、企画に手が回らない。</li>
-            <li>工程表・見積りが担当者の頭の中だけで属人化する。</li>
-            <li>事務・段取りの雑務が減らず、残業が常態化する。</li>
-            <li>AIを契約したが、何に使うか分からず月額だけ払っている。</li>
-          </ul>
+        <p class="conclusion">足りないのは、<strong class="marker">戦略も分かり、手も動かし、AIも使いこなすパートナー</strong>です。</p>
+      </section>
+
+      <section class="section fade-in" id="diagnosis" aria-labelledby="diagnosis-title">
+        <div class="section-head">
+          <div>
+            <p class="label">First Step</p>
+            <h2 id="diagnosis-title">30分の無料業務診断</h2>
+          </div>
+          <p>現在の業務を伺い、AIで改善できる業務、改善条件、人が確認すべき工程を整理します。</p>
         </div>
-        <p class="conclusion">足りないのは、戦略も分かり、手も動かし、AIも使いこなす、隣の机の相棒です。</p>
+        <div class="diagnosis-grid">
+          <article class="card"><span class="diagnosis-number">01</span><h3>業務を棚卸し</h3><p>議事録、報告書、指示書、見積りなど、時間がかかっている業務を確認します。</p></article>
+          <article class="card"><span class="diagnosis-number">02</span><h3>改善候補を特定</h3><p>AIを使える業務と、今は変えない方がよい業務を切り分けます。</p></article>
+          <article class="card"><span class="diagnosis-number">03</span><h3>確認工程を整理</h3><p>AIに任せる作業と、担当者・資格者が判断すべき工程を明確にします。</p></article>
+          <article class="card"><span class="diagnosis-number">04</span><h3>次の一手を提示</h3><p>最初に取り組む業務と、小さく試すための進め方を整理します。</p></article>
+        </div>
+        <div class="hero-actions diagnosis-actions">
+          <a class="button" href="mailto:info@idea-d.jp?subject=30分の無料業務診断の予約">30分の無料業務診断を予約する</a>
+        </div>
       </section>
 
       <section class="section fade-in" id="service" aria-labelledby="service-title">
         <div class="section-head">
           <div>
             <p class="label">Service</p>
-            <h2 id="service-title">ネクスク AI版とは。</h2>
+            <h2 id="service-title">ネクスク AI版とは</h2>
           </div>
-          <p>経験あるディレクターと、24時間動くAIが、<br />依頼企業の隣の机に並び、日常業務を伴走するサービスです。</p>
+          <p>建築実務を知るディレクターが、既存業務を整理し、<br />AIを日常業務へ無理なく組み込む伴走サービスです。</p>
         </div>
         <img class="section-visual wide" src="assets/illust-partner-current.png" alt="机を挟んで伴走するパートナー同士のイラスト" />
         <div class="definition">
           <div>
-            <h3 class="concept-title"><span class="en">Next Desk</span><span class="jp">机を並べて、一緒に考える。</span></h3>
-            <p>共創協働の思想はそのままに、AIがもう一つの机として参加します。人が方向を決め、AIが下支えし、時には現場にて一緒に考えながら、社内でまわせる仕組みへ育てます。</p>
-            <p>近い将来、AIでの業務改善の波は必ず来ます。人手不足を解消する最善の方法として、今から日常業務に組み込んでいきます。</p>
-          </div>
-          <div class="layer-stack">
-            <div class="layer">
-              <span class="layer-number">01</span>
-              <div>
-                <h3>人：ギルド型チーム</h3>
-                <p>戦略・ディレクション・壁打ち・品質判断を担う。</p>
-              </div>
-            </div>
-            <div class="layer">
-              <span class="layer-number">02</span>
-              <div>
-                <h3>AI：24時間の相棒</h3>
-                <p>議事録、資料ドラフト、調査、定型業務を高速化する。</p>
-              </div>
-            </div>
-            <div class="layer">
-              <span class="layer-number">03</span>
-              <div>
-                <h3>仕組み：月定額</h3>
-                <p>単発で終わらせず、検証と改善を日常に組み込む。</p>
-              </div>
+            <h3 class="concept-title"><span class="en">Next Desk</span><span class="jp">机を並べているような感覚で一緒に課題を解決する</span></h3>
+            <div class="definition-copy">
+              <p>共創協働の思想はそのままに、AIがもう一つの机として参加します。人が方向と品質を決め、AIが書類や段取りを下支えする仕組みへ育てます。</p>
+              <p>高額なSaaSや専用アプリの導入を前提にせず、今ある業務と道具から始めます。アプリやGPTsの制作は、必要な場合だけ別途検討します。</p>
             </div>
           </div>
-        </div>
-        <div class="grid-4 solution-grid" style="margin-top: 14px;">
-          <article class="card"><h3>稼働率を上げる</h3><p>雑務の効率化で、企画・提案に使える時間を増やします。</p></article>
-          <article class="card"><h3>内製化する</h3><p>属人化・外注依存を解き、社内でまわせる型へ。</p></article>
-          <article class="card"><h3>定着させる</h3><p>AIの使い方を業務に即して設計し、社員が使える状態へ。</p></article>
-          <article class="card"><h3>ブランドへ戻す</h3><p>生まれた時間を、企画・提案・ブランディングなど、生産性を高める仕事へ回します。</p></article>
         </div>
       </section>
 
@@ -1649,9 +1989,9 @@
         <div class="section-head">
           <div>
             <p class="label">Before / After</p>
-            <h2 id="change-title">AIで何が変わるか。</h2>
+            <h2 id="change-title">AIで何が変わるか</h2>
           </div>
-          <p>AIの機能自慢ではなく、日常業務の詰まりをどう変えるかに絞って設計します。</p>
+          <p>日常業務の詰まりをどう変えるかに絞って設計します。</p>
         </div>
         <div class="table-wrap">
           <table>
@@ -1663,31 +2003,31 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td>打合せ</td><td>議事録は後日、抜け漏れも。</td><td>その場で議事録・ToDo・決定事項を自動整理。</td></tr>
-              <tr><td>企画・提案</td><td>叩き台に数日。</td><td>AIで初稿を即日、人が磨いて質を担保。</td></tr>
-              <tr><td>調査・情報整理</td><td>担当者の手が止まる。</td><td>AIが一次調査、要点を人が判断。</td></tr>
-              <tr><td>社内定着</td><td>一部の人に属人化。</td><td>使い方を仕組み化し、社員がAIを使えるように育成。</td></tr>
-              <tr><td>コスト</td><td>外注の都度発生。</td><td>月定額で予測可能・内製化で逓減。</td></tr>
+              <tr><td>打合せ・議事録</td><td>会議後に担当者が一から整理</td><td>AIで下書きを作り、人が決定事項を確認</td></tr>
+              <tr><td>報告書・指示書</td><td>過去資料を探しながら毎回作成</td><td>既存の型を使って初稿を整え、担当者が仕上げる</td></tr>
+              <tr><td>見積り・工程表</td><td>情報が担当者の中に残りやすい</td><td>必要情報を整理し、確認しやすい状態にする</td></tr>
+              <tr><td>情報共有</td><td>確認事項がメールや口頭に分散</td><td>論点・担当・期限をまとめ、共有しやすくする</td></tr>
+              <tr><td>AIの定着</td><td>一部の人だけが個別に利用</td><td>業務ごとの使い方と確認工程を共通化する</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="note">AIは道具ではなく、課題を解決するためのパートナーです。判断と世界観づくりは人が担います。</p>
+        <p class="note">※AIが代行するのは、CG・模型などの制作そのものではなく、議事録・指示書・工程表・見積り・報告書・提案資料などの段取りや文書業務です。判断と品質管理は人が担います。</p>
       </section>
 
       <section class="section fade-in" id="value" aria-labelledby="value-title">
         <div class="section-head">
           <div>
             <p class="label">Value</p>
-            <h2 id="value-title">提供価値。</h2>
+            <h2 id="value-title">提供価値</h2>
           </div>
-          <p>効率化だけで終わらせず、人とブランドの力を上げるためにAIを使います。</p>
+          <p>作業時間・属人化・管理負担を減らし、人が本来の仕事に集中できる環境へつなげます。</p>
         </div>
         <img class="section-visual wide" src="assets/illust-team-current.png" alt="チームで改善に取り組む人たちのイラスト" />
         <div class="grid-4 value-grid">
-          <article class="card"><span class="value-icon">01</span><h3>内製化</h3><p>外注依存から、社内で企画・指示・改善をまわせる体制へ。</p></article>
-          <article class="card"><span class="value-icon">02</span><h3>「時間」の価値を高める</h3><p>AIを活用しデザイン思考を身につけ、生まれた時間を本来価値の高い仕事へ回します。</p></article>
-          <article class="card"><span class="value-icon">03</span><h3>ブランディング視点</h3><p>単なる効率化ではなく、会社や店舗の「らしさ」を守りながら改善します。</p></article>
-          <article class="card"><span class="value-icon">04</span><h3>共創協働</h3><p>評論家ではなく、スタッフの一員として日常業務から伴走します。</p></article>
+          <article class="card"><span class="value-icon">01</span><h3>稼働率を上げる</h3><p>雑務を効率化し、企画・提案など本来価値の高い仕事に使える時間を増やします。</p></article>
+          <article class="card"><span class="value-icon">02</span><h3>内製化する</h3><p>属人化・外注依存を解き、社内で企画・指示・改善をまわせる体制へ。</p></article>
+          <article class="card"><span class="value-icon">03</span><h3>定着させる</h3><p>AIの使い方を業務に即して設計し、社員が継続して使える状態へ。</p></article>
+          <article class="card"><span class="value-icon">04</span><h3>ブランド価値を高める</h3><p>会社の「らしさ」を守りながら、企画、提案、現場業務の質を高めます。</p></article>
         </div>
       </section>
 
@@ -1695,15 +2035,15 @@
         <div class="section-head">
           <div>
             <p class="label">Flow</p>
-            <h2 id="flow-title">導入フロー。</h2>
+            <h2 id="flow-title">導入フロー</h2>
           </div>
           <p>小さく始めて、役割分担を明確にし、検証しながら業務へ定着させます。</p>
         </div>
         <div class="flow">
-          <article class="flow-step"><span>STEP 01</span><h3>無料相談</h3><p>現状の課題、雑務、外注依存、AI利用状況を整理します。</p></article>
-          <article class="flow-step"><span>STEP 02</span><h3>伴走プラン設計</h3><p>人×AIの役割分担を合意し、改善テーマを決めます。</p></article>
-          <article class="flow-step"><span>STEP 03</span><h3>月定額でスタート</h3><p>議事録、資料、調査、テンプレートなどから実務に組み込みます。</p></article>
-          <article class="flow-step"><span>STEP 04</span><h3>検証・改善</h3><p>成果をブランドや中長期ビジョンにフィードバックします。</p></article>
+          <article class="flow-step"><span>STEP 01</span><h3>無料業務診断</h3><p>現状の業務、困りごと、AI利用状況を30分で確認します。</p></article>
+          <article class="flow-step"><span>STEP 02</span><h3>課題と範囲を決定</h3><p>改善テーマ、人とAIの役割、支援範囲と見積りを整理します。</p></article>
+          <article class="flow-step"><span>STEP 03</span><h3>小規模で試行</h3><p>優先業務から小さく試し、使い方と確認工程を検証します。</p></article>
+          <article class="flow-step"><span>STEP 04</span><h3>導入・継続支援</h3><p>検証結果を反映し、日常業務で継続できる運用へ整えます。</p></article>
         </div>
       </section>
 
@@ -1711,14 +2051,14 @@
         <div class="section-head">
           <div>
             <p class="label">Price</p>
-            <h2 id="price-title">費用の考え方。</h2>
+            <h2 id="price-title">費用の考え方</h2>
           </div>
-          <p>継続伴走は月定額プランで設計します。<br />課題の範囲と伴走頻度に応じて、最適なプランを個別に設計します。</p>
+          <p>月額の目安は以下のとおりです。支援範囲は無料業務診断で確認し、最終的なお見積りをご案内します。</p>
         </div>
         <div class="plan-grid">
           <article class="plan">
             <h3>ライトプラン</h3>
-            <p class="price">¥150,000〜</p>
+            <p class="price">¥120,000<small>（税別）〜</small></p>
             <p>相談・壁打ちを中心に、AI活用の入口を整えるプラン。</p>
             <ul class="plan-detail">
               <li>月1回程度の定例MTG</li>
@@ -1728,7 +2068,7 @@
           </article>
           <article class="plan">
             <h3>スタンダードプラン</h3>
-            <p class="price">¥250,000〜</p>
+            <p class="price">¥200,000<small>（税別）〜</small></p>
             <p>議事録、指示書、資料ドラフトなど、実務へ組み込むプラン。</p>
             <ul class="plan-detail">
               <li>月2回程度の定例MTG</li>
@@ -1738,12 +2078,12 @@
           </article>
           <article class="plan">
             <h3>伴走フルプラン</h3>
-            <p class="price">¥400,000〜</p>
-            <p>業務改善、内製化、人材育成、ブランドへの接続まで深く伴走し、別途項目も内容により範囲設計するプラン。</p>
+            <p class="price">¥300,000<small>（税別）〜</small></p>
+            <p>業務改善、内製化、人材育成、ブランドへの接続まで深く伴走し、別途費用となる項目も含め、範囲を個別に設計します。</p>
             <ul class="plan-detail">
+              <li>スタンダードプランの内容に加え</li>
               <li>月4回程度の定例・1on1伴走</li>
               <li>社内定着、テンプレート、運用改善支援</li>
-              <li>セミナー・研修は内容により範囲設計</li>
             </ul>
           </article>
           <article class="plan seminar-plan">
@@ -1781,16 +2121,16 @@
         <div class="section-head">
           <div>
             <p class="label">Reason</p>
-            <h2 id="reason-title">選ばれる理由。</h2>
+            <h2 id="reason-title">選ばれる理由</h2>
           </div>
           <p>机上のAI活用ではなく、現場に接地したデザイン実務から改善を組み立てます。</p>
         </div>
         <img class="section-visual wide" src="assets/illust-handshake-current.png" alt="合意形成と伴走を表す握手のイラスト" />
         <div class="grid-4 reason-grid">
-          <article class="card"><span class="reason-number">01</span><h3>30年超の実務</h3><p>空間設計・ブランディングの現場で培った判断軸があります。</p></article>
+          <article class="card"><span class="reason-number">01</span><h3>30年超の実務</h3><p>建築業務・ブランディングの現場で培った判断軸があります。</p></article>
           <article class="card"><span class="reason-number">02</span><h3>論理×デザイン思考</h3><p>業務の筋道を整理しながら、体験とブランドの質を落としません。</p></article>
-          <article class="card"><span class="reason-number">03</span><h3>現場の接地面まで踏む</h3><p>遵法性と実務の制約まで見据えて伴走します。</p></article>
-          <article class="card"><span class="reason-number">04</span><h3>AI活用を実務に落とし込む</h3><p>ツール紹介で終わらせず、日常業務で使える形に設計します。</p></article>
+          <article class="card"><span class="reason-number">03</span><h3>建築の現場を熟知</h3><p>遵法性と実務の制約まで見据えて伴走します。</p></article>
+          <article class="card"><span class="reason-number">04</span><h3>従来の業務とAI活用</h3><p>従来の業務にAIを落とし込むことで、違和感なく業務改善を行う</p></article>
         </div>
       </section>
 
@@ -1798,27 +2138,29 @@
         <div class="section-head">
           <div>
             <p class="label">FAQ</p>
-            <h2 id="faq-title">よくある質問。</h2>
+            <h2 id="faq-title">よくある質問</h2>
           </div>
           <p>導入前に気になりやすい点を、先に整理しました。</p>
         </div>
         <div class="faq-list">
-          <details><summary>AIに任せてもクウォリティは保たれますか？</summary><p>判断は人が担います。AIは議事録、整理、初稿、定型作業の下支えをし、最終的な品質と世界観は経験あるディレクターが確認します。</p></details>
-          <details><summary>どの業種に一番向いていますか？</summary><p>まずは建築・空間・店舗に関わる企業におすすめしています。提案資料、外注指示、見積り、現場書類、販促・SNSなど、現場とブランドの両方を扱う業務と相性が良いサービスです。上記以外の中小企業も、課題内容に応じて対応可能です。</p></details>
+          <details><summary>AIに任せてもクオリティは保たれますか？</summary><p>判断は人が担います。AIは議事録、整理、初稿、定型作業の下支えをし、最終的な品質と世界観は経験あるディレクターが確認します。</p></details>
+          <details><summary>どの業種を対象にしていますか？</summary><p>建築・空間に関わる企業におすすめしています。提案資料、外注指示、見積り、現場書類、工程表の作成など、事務作業と現場作業が混在する業務と相性が良いサービスです。上記以外の中小企業様も、課題内容に応じて対応可能です。</p></details>
+          <details><summary>無料業務診断では何を確認しますか？</summary><p>現在の業務と困りごとを伺い、AIで改善できる候補、人が確認すべき工程、最初に小さく試す業務を30分で整理します。</p></details>
           <details><summary>社内にAIに詳しい人がいなくても大丈夫ですか？</summary><p>大丈夫です。使い方の設計、テンプレート化、社員が使える状態への育成まで含めて伴走します。ご希望に応じて、社内向けセミナーの開催もいたします。</p></details>
-          <details><summary>契約期間・解約について教えてください。</summary><p>AI活用の定着と業務改善の効果検証には一定の運用期間が必要なため、基本の最低契約期間は6か月を目安としています。伴走範囲や運用体制に応じて、無料相談時に前提を確認します。</p></details>
+          <details><summary>契約期間・解約について教えてください。</summary><p>業務開始後、最初の契約期間を6ヶ月とします。<br />その後は業務継続性を鑑みて、個別に対応いたします。<br />無料業務診断後の提案時に、期間、条件、進め方を個別に確認させてください</p></details>
+          <details><summary>図面や顧客情報をAIへ送っても大丈夫ですか？</summary><p>未公開図面、契約原本、個人情報などを許可なく外部AIへ送ることはありません。使用する情報と運用方法を事前に確認し、建築法規・安全性・設計責任に関する判断は資格者・担当者が最終確認します。</p></details>
           <details><summary>テンプレート作成や社員研修はプラン内ですか？</summary><p>簡易なテンプレート化や使い方の整理は、スタンダード以上の伴走範囲に含めて設計できます。本格的なマニュアル化、研修設計、複数部署への展開、システム構築を伴うものは、内容と作業量により別途費用・要相談です。</p></details>
-          <details><summary>制作物はどこまで込みですか？</summary><p>制作物として図面・CG・模型・ロゴ・HP等、成果物として別納品になるものは原則として別途費用です。個別のGPTs / AI Agent等の構築、見積積算システム、Webアプリ・業務システム、データベース接続やAPI連携実装、研修、マニュアル化なども、内容や作業量によりプラン内に含められる場合があります。無料相談時に範囲を確認します。</p></details>
+          <details><summary>制作物はどこまで込みですか？</summary><p>制作物として図面・CG・模型・ロゴ・HP等、成果物として別納品になるものは原則として別途費用です。個別のGPTs / AI Agent等の構築、見積積算システム、Webアプリ・業務システム、データベース接続やAPI連携実装、研修、マニュアル化なども、内容や作業量によりプラン内に含められる場合があります。無料業務診断時に範囲を確認します。</p></details>
           <details><summary>対応エリアやオンライン対応は可能ですか？</summary><p>対応エリア・オンライン可否は要相談です。業務内容や打合せ頻度に合わせて進め方を設計します。</p></details>
         </div>
       </section>
 
       <section class="final-cta fade-in" id="contact" aria-labelledby="contact-title">
         <p class="label">Contact</p>
-        <h2 id="contact-title">まずは“隣の机”を体験してください。</h2>
-        <p>現場の雑務、外注依存、AI導入の停滞。いま詰まっている仕事を一つ持って、無料相談にどうぞ。</p>
+        <h2 id="contact-title">まずは30分の無料業務診断から</h2>
+        <p>現在の業務を伺い、AIで改善できる業務と、人が確認すべき工程を整理します。</p>
         <div class="contact-row">
-          <a class="button" href="mailto:info@idea-d.jp?subject=ネクスクAI版の無料相談">無料で相談する</a>
+          <a class="button" href="mailto:info@idea-d.jp?subject=30分の無料業務診断の予約">30分の無料業務診断を予約する</a>
           <a href="mailto:info@idea-d.jp">mail info@idea-d.jp</a>
         </div>
       </section>
@@ -1830,42 +2172,76 @@
     </footer>
 
     <div class="mobile-cta">
-      <a class="button" href="mailto:info@idea-d.jp?subject=ネクスクAI版の無料相談">無料で相談する</a>
+      <a class="button" href="mailto:info@idea-d.jp?subject=30分の無料業務診断の予約">無料業務診断を予約する</a>
     </div>
 
     <script>
-      const tabButtons = document.querySelectorAll(".tab-button");
-      const panels = document.querySelectorAll(".tab-panel");
-      const fadeTargets = document.querySelectorAll(".fade-in");
+      document.documentElement.classList.add("motion-ready");
 
-      tabButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const panelId = button.getAttribute("aria-controls");
-          tabButtons.forEach((item) => item.setAttribute("aria-selected", String(item === button)));
-          panels.forEach((panel) => panel.classList.toggle("is-active", panel.id === panelId));
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const revealSelectors = [
+        ".section-head > *",
+        ".problem-bubble",
+        ".card",
+        ".plan",
+        ".flow-step",
+        ".diagnosis-grid > *",
+        ".table-wrap tbody tr",
+        ".price-note",
+        ".section-visual",
+        ".faq-list details"
+      ];
+
+      revealSelectors.forEach((selector) => {
+        document.querySelectorAll(selector).forEach((item, index) => {
+          item.classList.add("motion-item");
+          item.style.setProperty("--motion-delay", `${Math.min(index % 5, 4) * 90}ms`);
+          if (selector.includes("tbody") && index % 2 === 0) item.classList.add("motion-from-left");
+          if (selector.includes("tbody") && index % 2 === 1) item.classList.add("motion-from-right");
         });
       });
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.12 }
-      );
+      const fadeTargets = document.querySelectorAll(".fade-in, .motion-item, .flow");
 
-      fadeTargets.forEach((target) => observer.observe(target));
+      if (reducedMotion || !("IntersectionObserver" in window)) {
+        fadeTargets.forEach((target) => target.classList.add("is-visible"));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -6%" }
+        );
+        fadeTargets.forEach((target) => observer.observe(target));
+      }
+
+      const progressBar = document.querySelector(".scroll-progress span");
+      let progressTicking = false;
+      const updateProgress = () => {
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+        progressBar.style.transform = `scaleX(${Math.min(Math.max(progress, 0), 1)})`;
+        progressTicking = false;
+      };
+      window.addEventListener("scroll", () => {
+        if (!progressTicking) {
+          requestAnimationFrame(updateProgress);
+          progressTicking = true;
+        }
+      }, { passive: true });
+      updateProgress();
     </script>
 
     <!--
       差し替え箇所
-      - コピー文言：ヒーロー、課題タブ、FAQ、最終CTA。
+      - コピー文言：ヒーロー、課題一覧、無料業務診断、FAQ、最終CTA。
       - 連絡先：mailtoリンク、info@idea-d.jp。
-      - 料金：ライトプラン／スタンダードプラン／伴走フルプランの月額表示。
+      - 料金：ライト12万円〜、スタンダード20万円〜、伴走フル30万円〜（月額・税別）。最終見積りは無料業務診断後。
       - 別途費用：制作物、個別のGPTs / AI Agent、見積積算システム、Webアプリ・業務システム、データベース接続、API連携、研修、業務フロー設計などの範囲。
     -->
   </body>
